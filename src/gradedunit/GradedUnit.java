@@ -14,7 +14,9 @@ public class GradedUnit
       {
           Player p1 = new Player();
           p1.setName("John");
+          p1.setAddress("lol");
           System.out.println(p1.getName());
+          p1.getDetails();
       }
     
 }

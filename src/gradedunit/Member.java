@@ -10,15 +10,15 @@ abstract public class Member implements Serializable
 {
   //Member Form variables  
     protected String Name;
-    public String Address;
-    public String PostCode;
-    public int SRU_Number;
-    public String DateOfBirth;
-    public int TelNum;
-    public int MobNum;
-    public String Email;
-    
-    
-    
+    protected String Address;
+    protected String PostCode;
+    protected int SRU_Number;
+    protected String DateOfBirth;
+    protected int TelNum;
+    protected int MobNum;
+    protected String Email;
+        
+    abstract public void getDetails();
+   
     
 }
