@@ -17,6 +17,14 @@ public class GradedUnit
           p1.setAddress("lol");
           System.out.println(p1.getName());
           p1.getDetails();
+          Non_Player np1 = new Non_Player();
+          
+          System.out.println("");
+          
+          np1.setName("David");
+          System.out.println(np1.getName());
+          np1.getDetails();
+          
       }
     
 }
