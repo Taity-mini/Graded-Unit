@@ -19,6 +19,21 @@ abstract public class Member implements Serializable
     protected String Email;
         
     abstract public void getDetails();
+
+    public Member(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
+      {
+        this.Name = Name;
+        this.Address = Address;
+        this.PostCode = PostCode;
+        this.SRU_Number = SRU_Number;
+        this.DateOfBirth = DateOfBirth;
+        this.TelNum = TelNum;
+        this.MobNum = MobNum;
+        this.Email = Email;
+      }
+    
+    
+    
    
     
 }

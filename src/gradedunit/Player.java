@@ -16,6 +16,19 @@ public class Player extends Member
         private String healthInfo;
         private String player_postion;
 
+    public Player(String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_postion, String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
+      {
+        super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
+        this.nextOfKin = nextOfKin;
+        this.nextOfKin_Tel = nextOfKin_Tel;
+        this.doctor_Name = doctor_Name;
+        this.doctor_Tel = doctor_Tel;
+        this.healthInfo = healthInfo;
+        this.player_postion = player_postion;
+      }
+
+        
+        
     //======= START Getters=======\\
     public String getName()
       {

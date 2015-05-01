@@ -12,6 +12,13 @@ package gradedunit;
  */
 public class Non_Player extends Member
 {   
+
+    public Non_Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
+      {
+        super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
+      }
+    
+    
     //======= START Getters=======\\
     public String getName()
       {
