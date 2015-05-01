@@ -27,7 +27,7 @@ public class GradedUnit
 //          System.out.println(np1.getName());
 //          np1.getDetails();
         
-       ArrayList <Member> Members = new ArrayList();
+       //ArrayList <Member> Members = new ArrayList();
        ArrayList <Player> Players = new ArrayList();
        ArrayList <Junior> Junior =  new ArrayList(); 
        ArrayList <Non_Player> Non_players = new ArrayList();

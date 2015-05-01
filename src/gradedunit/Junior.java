@@ -26,7 +26,7 @@ public class Junior extends Member
     private String Player_postion;
 
     //Constructor
-    public Junior(String Guardian_Name, String Guardian_Relationship, String Guardian_Address, int Guardian_Tel, String Doc_Name, String Doc_Address, int Doc_Tel_Num, String healthInfo, String Player_postion, String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
+    public Junior(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String Guardian_Name, String Guardian_Relationship, String Guardian_Address, int Guardian_Tel, String Doc_Name, String Doc_Address, int Doc_Tel_Num, String healthInfo, String Player_postion)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.Guardian_Name = Guardian_Name;

@@ -20,6 +20,8 @@ abstract public class Member implements Serializable
         
     abstract public void getDetails();
 
+    
+    //Member Constuctor
     public Member(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
       {
         this.Name = Name;

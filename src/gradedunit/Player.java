@@ -8,7 +8,6 @@ package gradedunit;
 public class Player extends Member
 {
     //Local Variables for additional  fields
-    
         private String nextOfKin;
         private int nextOfKin_Tel;
         private String doctor_Name;
@@ -16,7 +15,7 @@ public class Player extends Member
         private String healthInfo;
         private String player_postion;
 
-    public Player(String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_postion, String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
+    public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_postion)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.nextOfKin = nextOfKin;
