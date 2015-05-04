@@ -23,10 +23,10 @@ public class Junior extends Member
     private String Doc_Address;
     private int Doc_Tel_Num;
     private String healthInfo;
-    private String Player_postion;
+    private String Player_position;
 
     //Constructor
-    public Junior(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String Guardian_Name, String Guardian_Relationship, String Guardian_Address, int Guardian_Tel, String Doc_Name, String Doc_Address, int Doc_Tel_Num, String healthInfo, String Player_postion)
+    public Junior(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String Guardian_Name, String Guardian_Relationship, String Guardian_Address, int Guardian_Tel, String Doc_Name, String Doc_Address, int Doc_Tel_Num, String healthInfo, String Player_position)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.Guardian_Name = Guardian_Name;
@@ -37,7 +37,7 @@ public class Junior extends Member
         this.Doc_Address = Doc_Address;
         this.Doc_Tel_Num = Doc_Tel_Num;
         this.healthInfo = healthInfo;
-        this.Player_postion = Player_postion;
+        this.Player_position = Player_position;
       }
     
 
@@ -123,9 +123,9 @@ public class Junior extends Member
         return healthInfo;
       }
 
-    public String getPlayer_postion()
+    public String getPlayer_position()
       {
-        return Player_postion;
+        return Player_position;
       }
 
     /*GETTERS - END */
@@ -210,16 +210,34 @@ public class Junior extends Member
         this.healthInfo = healthInfo;
       }
 
-    public void setPlayer_postion(String Player_postion)
+    public void setPlayer_position(String Player_position)
       {
-        this.Player_postion = Player_postion;
+        this.Player_position = Player_position;
       }
 
     /*SETTERS - END */
     @Override
     public void getDetails()
       {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          System.out.println("Name:     "                       + this.getName());
+          System.out.println("Address:  "                       + this.getAddress());
+          System.out.println("PostCode: "                       + this.getPostCode());
+          System.out.println("Date Of Birth: "                  + this.getDateOfBirth());
+          System.out.println("SRU Number: "                     + this.getSRU_Number());
+          System.out.println("Tel Number: "                     + this.getTelNum());
+          System.out.println("Mobile Number: "                  + this.getMobNum());
+          System.out.println("Email: "                          + this.getEmail());
+         
+          System.out.println("Guardian 1 - Name: "              + this.getGuardian_Name());
+          System.out.println("Guardian 1 - Relationship: "      + this.getGuardian_Relationship());
+          System.out.println("Guardian 1 - Address: "           + this.getGuardian_Address());
+          System.out.println("Guardian 1 - Telephone Number: "  + this.getGuardian_Tel());
+       
+          System.out.println("Doctor Name: "                    + this.getDoc_Name());
+          System.out.println("Doctor Telephone: "               + this.getDoc_Tel_Num());
+          System.out.println("Doctor - Address: "               + this.getDoc_Address());
+          System.out.println("Known Health Issues: "            + this.getHealthInfo());
+          System.out.println("Player position: "                + this.getPlayer_position());
       }
 
     public boolean CheckValidSigniture(String signiture, String Guardian_Name)

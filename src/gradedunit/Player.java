@@ -13,9 +13,9 @@ public class Player extends Member
         private String doctor_Name;
         private int doctor_Tel;
         private String healthInfo;
-        private String player_postion;
+        private String player_position;
 
-    public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_postion)
+    public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_position)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.nextOfKin = nextOfKin;
@@ -23,8 +23,9 @@ public class Player extends Member
         this.doctor_Name = doctor_Name;
         this.doctor_Tel = doctor_Tel;
         this.healthInfo = healthInfo;
-        this.player_postion = player_postion;
+        this.player_position = player_position;
       }
+
 
         
         
@@ -98,9 +99,9 @@ public class Player extends Member
       }
     
 
-    public String getPlayer_postion()
+    public String getPlayer_position()
       {
-        return player_postion;
+        return player_position;
       }
 
     @Override
@@ -118,7 +119,7 @@ public class Player extends Member
           System.out.println("Next Of Kin Tel: "    + this.getNextOfKin_Tel());
           System.out.println("Doctor Name: "        + this.getDoctor_Name());
           System.out.println("Health Info: "        + this.getDoctor_Tel());
-          System.out.println("Player Postion: "     + this.getPlayer_postion());   
+          System.out.println("Player position: "     + this.getPlayer_position());   
           
           
       }
