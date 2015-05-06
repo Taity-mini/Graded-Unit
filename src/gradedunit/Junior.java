@@ -9,7 +9,7 @@ import static java.lang.Boolean.FALSE;
 
 /**
  *
- * @author Andrew
+ * @author Andrew Tait (EC1302292)
  */
 public class Junior extends Member
 {

@@ -1,5 +1,7 @@
 package gradedunit;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -167,6 +169,11 @@ public class Player extends Member
       {
         this.Email = Email;
       }  
+        
+       public void Convert (ArrayList <Player> Player)
+         {
+           //
+         }
       //=======END Setters=======\\
 
     

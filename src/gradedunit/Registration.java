@@ -12,7 +12,7 @@ public class Registration
 
     public static void addPlayer(ArrayList<Player> Player)
       {
-        //create scanner to accept user input
+         //create scanner to accept user input
         Scanner players = new Scanner(System.in);
 
         //Local variables used to store information of
@@ -34,6 +34,9 @@ public class Registration
         String player_Position;
 
         //Player Member form
+        System.out.println("Rugby Players Registration Form");
+        System.out.println("******************************************************");
+       
         System.out.print("Name: ");
         Name = players.nextLine();
         System.out.print("Address: ");
@@ -42,13 +45,13 @@ public class Registration
         PostCode = players.nextLine();
 
         System.out.print("SRU Number: ");
-        SRU = players.nextInt();
+        SRU = Integer.parseInt(players.nextLine());
         System.out.println("Date of Birth: ");
-        DOB = players.toString();
+        DOB = players.nextLine();
         System.out.print("Telephone Number: ");
-        TelNum = players.nextInt();
+        TelNum = Integer.parseInt(players.nextLine()); ;
         System.out.print("Mobile Number: ");
-        MobNum = players.nextInt();
+        MobNum = Integer.parseInt(players.nextLine()); ;
         System.out.print("Email Address: ");
         Email = players.nextLine();
 
@@ -56,11 +59,11 @@ public class Registration
         System.out.print("Next of Kin - Name: ");
         nextOfKin = players.nextLine();
         System.out.print("Next of Kin - Telephone Number: ");
-        nextOfKin_Tel = players.nextInt();
+        nextOfKin_Tel = Integer.parseInt(players.nextLine()); ;
         System.out.print("Doctor Name: ");
         doctor_Name = players.nextLine();
         System.out.print("Doctor Telephone: ");
-        doctor_Tel = players.nextInt();
+        doctor_Tel = Integer.parseInt(players.nextLine()); ;
         System.out.print("Known Health Issues: ");
         healthInfo = players.nextLine();
         System.out.print("Player position: ");
@@ -68,6 +71,8 @@ public class Registration
 
         //Add new registered player to player arraylist
         Player.add(new Player(Name, Address, PostCode, SRU, DOB, TelNum, MobNum, Email, nextOfKin, nextOfKin_Tel, doctor_Name, doctor_Tel, healthInfo, player_Position));
+        System.out.println("Rugby player: " + Name + " ,Sucessfully added to list.");
+        System.out.println("******************************************************");
       }
 
     public static void addJunior(ArrayList<Junior> Junior)
@@ -96,7 +101,7 @@ public class Registration
         String healthInfo;
         String Player_position;
 
-        //Junior Player Member form
+       		//Junior Player Member form
         System.out.println("******************************************************");
         System.out.println("Junior Player's Registration Form");
         System.out.print("Name: ");
@@ -107,18 +112,18 @@ public class Registration
         PostCode = juniors.nextLine();
 
         System.out.print("SRU Number: ");
-        SRU = juniors.nextInt();
+        SRU = Integer.parseInt(juniors.nextLine()); 
         System.out.print("Date of Birth: ");
         DOB = juniors.nextLine();
         System.out.print("Telephone Number: ");
-        TelNum = juniors.nextInt();
+        TelNum = Integer.parseInt(juniors.nextLine()); 
         System.out.print("Mobile Number: ");
-        MobNum = juniors.nextInt();
+        MobNum = Integer.parseInt(juniors.nextLine()); 
         System.out.print("Email Address: ");
         Email = juniors.nextLine();
 
         System.out.print("Additional Fields below: ");
-          System.out.println("");
+        System.out.println("");
         System.out.print("Guardian 1 - Name: ");
         Guardian_Name = juniors.nextLine();
         System.out.print("Guardian 1 - Relationship: ");
