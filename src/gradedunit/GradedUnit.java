@@ -18,6 +18,7 @@ public class GradedUnit
            ArrayList <Player> Player = new ArrayList();
            ArrayList <Junior> Junior =  new ArrayList(); 
            ArrayList <Non_Player> Non_player = new ArrayList();
+           ArrayList <ProfileTemplate> Profiles = new ArrayList();
            String dir = Consts.FILE_DIRECTORY;
            ArrayList <Catagory> Catagory = new ArrayList();
            Catagory.add(new Catagory("Passing"));
@@ -35,10 +36,12 @@ public class GradedUnit
            Skills.add(new SkillSet("Punt", "Kicking"));
            Skills.add(new SkillSet("Grubber", "Kicking"));
            Skills.add(new SkillSet("Goal", "Kicking"));
+           //ProfileTemplate.setALL(Catagory, Skills);
+            
            
-           
-           ProfileTemplate.setALL(Catagory, Skills);
-           
+           ProfileTemplate s1 = new ProfileTemplate(Catagory, Skills);
+           s1.setALL(s1.getCatagory(), s1.getSkills());
+           s1.getALL(s1.getCatagory(), s1.getSkills());
            Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
          
            //Registration.addPlayer(Player);

@@ -8,7 +8,7 @@ package gradedunit;
 
 /**
  *
- * @author Andrew
+ * @author Andrew Tait (EC1302292)
  */
 public class Squads
 {
