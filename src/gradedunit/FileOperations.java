@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.ObjectInputStream;
 
 /**
@@ -35,7 +34,7 @@ public class FileOperations
                   {
                     case "Player":
                         Member = (ArrayList<Player>) ois.readObject();
-                        System.out.println(myFile + "Sucessfully loaded");
+                        System.out.println(myFile + " ,Sucessfully loaded");
                         break;
                     case "Junior":
                         Member = (ArrayList<Junior>) ois.readObject();

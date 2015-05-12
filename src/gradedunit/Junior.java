@@ -14,7 +14,7 @@ import static java.lang.Boolean.FALSE;
 public class Junior extends Member
 {
 
-    //local variables
+    //local variables for fields
     private String Guardian_Name;
     private String Guardian_Relationship;
     private String Guardian_Address;
