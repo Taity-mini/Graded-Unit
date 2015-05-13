@@ -42,6 +42,9 @@ public class FileOperations
                     case "Non_Player":
                         Member = (ArrayList<Non_Player>) ois.readObject();
                         break;
+                    case "Games":
+                        Member = (ArrayList<Game>) ois.readObject();
+                        break;    
                     default:
                         System.out.println("Incorrect Filename, try again");
                         break;

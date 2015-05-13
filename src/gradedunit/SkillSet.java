@@ -52,12 +52,4 @@ public class SkillSet
         this.Catagory = Catagories;
       }
     
-    
-
-    
-    
-    
-    
-    
-    
 }
