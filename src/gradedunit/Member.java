@@ -8,7 +8,11 @@ import java.io.Serializable;
  */
 abstract public class Member implements Serializable
 {
-  //Member Form variables  
+  //Member Form variables
+    
+    protected int id;
+    protected static int count = 0;
+    
     protected String Name;
     protected String Address;
     protected String PostCode;
@@ -33,6 +37,8 @@ abstract public class Member implements Serializable
         this.MobNum = MobNum;
         this.Email = Email;
       }
+    
+    
     
     
    

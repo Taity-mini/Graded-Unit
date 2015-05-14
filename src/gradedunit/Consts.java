@@ -3,7 +3,7 @@ package gradedunit;
 import java.util.ArrayList;
 /**
  *
- * @author Andrew
+ * @author Andrew Tait (EC1302292)
  */
 public class Consts
 {

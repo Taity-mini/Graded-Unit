@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package gradedunit;
 
 /**
  *
- * @author Andrew
+ * @author Andrew Tait (EC1302292)
  */
 public class SkillSet
 {

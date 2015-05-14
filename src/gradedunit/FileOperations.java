@@ -38,13 +38,26 @@ public class FileOperations
                         break;
                     case "Junior":
                         Member = (ArrayList<Junior>) ois.readObject();
+                        System.out.println(myFile + " ,Sucessfully loaded");
                         break;
                     case "Non_Player":
                         Member = (ArrayList<Non_Player>) ois.readObject();
+                        System.out.println(myFile + " ,Sucessfully loaded");
                         break;
                     case "Games":
                         Member = (ArrayList<Game>) ois.readObject();
-                        break;    
+                        System.out.println(myFile + " ,Sucessfully loaded");
+                        break;
+                    case "Profiles":
+                        Member = (ArrayList<ProfileTemplate>) ois.readObject();
+                        System.out.println(myFile + " ,Sucessfully loaded");
+                        break;
+                        
+                     case "Training":
+                        Member = (ArrayList <Training>) ois.readObject();
+                        System.out.println(myFile + " ,Sucessfully loaded");
+                        break;
+                 
                     default:
                         System.out.println("Incorrect Filename, try again");
                         break;
@@ -72,7 +85,7 @@ public class FileOperations
 
     public static void ReadCSV(ArrayList<?> Member, String FileName, String folder)
       {
-
+          
       }
 
     //Writing to file Operations
@@ -95,7 +108,7 @@ public class FileOperations
 
             FileOutputStream fs = new FileOutputStream(dir + "//" + FileName + ".dat");
             ObjectOutputStream os = new ObjectOutputStream(fs);
-            os.writeObject(Member); // write MenuArray to ObjectOutputStream
+            os.writeObject(Member); // write Member to ObjectOutputStream
             os.close();
 
             System.out.println("Objects sent to disk");

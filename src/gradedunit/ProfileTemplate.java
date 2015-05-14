@@ -6,6 +6,7 @@ import java.util.Scanner;
 import gradedunit.Catagory.*;
 import gradedunit.SkillSet.*;
 import java.io.Serializable;
+import java.util.Iterator;
 
 /**
  *
@@ -16,16 +17,14 @@ public class ProfileTemplate implements Serializable
 
     private String PlayerName;
     private String MemberClass;
-    private String PlayerSquad;
     
    
     ArrayList<Catagory> Catagory = new ArrayList();
     ArrayList<SkillSet> Skills = new ArrayList();
-
+    
     public ProfileTemplate(String PlayerName, String Squad,ArrayList<Catagory> Catagory, ArrayList<SkillSet> Skills)
       {
         this.PlayerName = PlayerName;
-        this.PlayerSquad = Squad;
         this.Catagory = Catagory;
         this.Skills = Skills;
       }
@@ -41,10 +40,6 @@ public class ProfileTemplate implements Serializable
         return MemberClass;
       }
 
-    public String getPlayerSquad()
-      {
-        return PlayerSquad;
-      }
 
     public ArrayList<Catagory> getCatagory()
       {
@@ -83,14 +78,14 @@ public class ProfileTemplate implements Serializable
           }
       }
     
-     public void getALL(ArrayList<Catagory> Catagory, ArrayList<SkillSet> Skills)
+     public void getALL()
       {
         for (Catagory c : Catagory)
           {
             System.out.print("Catagory:" + c.getCatagory());
-
-            for (SkillSet s : Skills)
+            for (Iterator<SkillSet> it = Skills.iterator(); it.hasNext();)
               {
+                SkillSet s = it.next();
                 if (c.getCatagory().equals(s.getCatagories()))
                   {
                     System.out.print(s.getSkill());

@@ -38,11 +38,15 @@ public class Junior extends Member
         this.Doc_Tel_Num = Doc_Tel_Num;
         this.healthInfo = healthInfo;
         this.Player_position = Player_position;
+        this.setId(++count);
+      }
+
+    /*GETTERS - START */
+    public int getId()
+      {
+        return id;
       }
     
-
-  
-    /*GETTERS - START */
     public String getName()
       {
         return Name;
@@ -130,6 +134,12 @@ public class Junior extends Member
 
     /*GETTERS - END */
     /*SETTERS - START*/
+    public void setId(int id)
+      {
+        this.id = id;
+      }
+
+    
     public void setName(String Name)
       {
         this.Name = Name;

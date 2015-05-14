@@ -26,12 +26,21 @@ public class Player extends Member
         this.doctor_Tel = doctor_Tel;
         this.healthInfo = healthInfo;
         this.player_position = player_position;
+        this.setId(++count);
       }
 
-
+    
         
         
     //======= START Getters=======\\
+    
+    
+    
+    public int getId()
+      {
+        return id;
+      }
+    
     public String getName()
       {
         return Name;
@@ -121,14 +130,17 @@ public class Player extends Member
           System.out.println("Next Of Kin Tel: "    + this.getNextOfKin_Tel());
           System.out.println("Doctor Name: "        + this.getDoctor_Name());
           System.out.println("Health Info: "        + this.getDoctor_Tel());
-          System.out.println("Player position: "     + this.getPlayer_position());   
+          System.out.println("Player position: "    + this.getPlayer_position());   
           
           
       }
 
-     //=======END Getters=======\\
-    
-     //=======START Setters=======\\
+    //=======END Getters=======\\
+    //=======START Setters=======\\
+    private void setId(int id)
+      {
+        this.id = id;
+      }
     
      public void setName(String Name)
       {
@@ -169,6 +181,8 @@ public class Player extends Member
       {
         this.Email = Email;
       }  
+        
+        
         
       //=======END Setters=======\\
 

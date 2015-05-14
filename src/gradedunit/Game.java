@@ -15,7 +15,7 @@ public class Game implements Serializable
 
     private String OppositionName;
     private String MatchDate;
-    private boolean Location;
+    private String Location;
     private String KickoffTime;
     private String Result;
     private String Coach;
@@ -34,7 +34,7 @@ public class Game implements Serializable
     private String Opposition_scores_sh;
     private int Opposition_points_sh;
 
-    public Game(String OppositionName, String MatchDate, boolean Location, String KickoffTime, String Result, String Coach, String Score, String Squad, String SimplyRugby_scores_fh, int SimplyRugby_points_fh, String Opposition_scores_fh, int Opposition_points_fh, String SimplyRugby_scores_sh, int SimplyRugby_points_sh, String Opposition_scores_sh, int Opposition_points_sh)
+    public Game(String OppositionName, String MatchDate, String Location, String KickoffTime, String Result, String Coach, String Score, String Squad, String SimplyRugby_scores_fh, int SimplyRugby_points_fh, String Opposition_scores_fh, int Opposition_points_fh, String SimplyRugby_scores_sh, int SimplyRugby_points_sh, String Opposition_scores_sh, int Opposition_points_sh)
       {
         this.OppositionName = OppositionName;
         this.MatchDate = MatchDate;
@@ -71,7 +71,7 @@ public class Game implements Serializable
         return MatchDate;
       }
 
-    public boolean isLocation()
+    public String isLocation()
       {
         return Location;
       }
@@ -152,7 +152,7 @@ public class Game implements Serializable
         this.MatchDate = MatchDate;
       }
 
-    public void setLocation(boolean Location)
+    public void setLocation(String Location)
       {
         this.Location = Location;
       }
@@ -271,7 +271,7 @@ public class Game implements Serializable
               {
                 "Scores and Comments:" , "Scores and Comments:"
               },
-               {
+              {
                 "" , ""
               },
             {
