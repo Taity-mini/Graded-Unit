@@ -3,7 +3,6 @@ package gradedunit;
 import java.io.Serializable;
 import java.util.ArrayList;
 import com.bethecoder.ascii_table.ASCIITable;
-import java.lang.reflect.Array;
 
 /**
  *
@@ -12,7 +11,7 @@ import java.lang.reflect.Array;
 public class Training  implements Serializable
 {
     //Local Variables
-     private int id;
+    private int id;
     private static int count = 0;
 
     
@@ -26,6 +25,7 @@ public class Training  implements Serializable
     private String SkillsActivites;
     //Grabs list of players present at training. 
     private ArrayList<?> PlayersPresent = new ArrayList();
+   
     private String Incidents;
 
     public Training(String Coach, String Date, String Location, String Time, String SkillsActivites, String Incidents, ArrayList <?> Players)
@@ -127,38 +127,83 @@ public class Training  implements Serializable
     
     private String[][] ListToArray()
       {
-        String[][] Names = new String[this.getPlayersPresent().size()][];
-        Names = getPlayersPresent().toArray(Names);
+        //Convert ArrayList of Names to 2d String Array
+        
+        String[][] Names = new String[1][this.getPlayersPresent().size()];
+        
+        for(int i = 0;  i < this.getPlayersPresent().size();i++)
+          {
+            Names[0][i] = this.getPlayersPresent().get(i).toString();
+          }
         return Names;
       }
     
     
     public void getAllDetails()
       {
-        
-          System.out.println("Coach organsing: " + this.getCoach() + "\t" + "Date: " + this.getDate());
-          System.out.println("Location: " + this.getLocation() + "\t" + "Time: " + this.getTime());
-          
-          String[] header =
+          System.out.println("");
+          System.out.println("******************************************************");
+          System.out.println("Training Session ID: " + this.getId());
+          System.out.println("Coach organsing: " + this.getCoach() + "\t\t" + "Date: " + this.getDate());
+          System.out.println("Location: " + this.getLocation() + "\t\t" + "Time: " + this.getTime());
+          System.out.println("******************************************************");
+         
+          String[] header1 =
           {
-            //"Field",
-            "Skills and SkillsActivites undertaken"
-            
-          };
-          String[][] secondHalf =
-          {
-              
-              {
-                "Scores and Comments:" , "Scores and Comments:"
-              },
-              {
-                "" , ""
-              },
+            "Skills and Activites undertaken"
           };
           
-           ASCIITable.getInstance().printTable(header, secondHalf);
-      
+           String[] header2 =
+          {
+            "Players Present                "
+          };
+         
+           String[] header3 =
+          {
+            "Accidents/Injuries             "
+          };
+           
+             String[][] Skills =
+          { 
+              {
+                this.getSkillsActivites()
+              },
+          }; 
+            String[][] Accidents =
+          { 
+              {
+                this.getIncidents()
+              },
+          };    
+           
+          ASCIITable.getInstance().printTable(header1, Skills);
+          ASCIITable.getInstance().printTable(header2, this.ListToArray());
+          ASCIITable.getInstance().printTable(header3, Accidents);
+          System.out.println("******************************************************");
       }
+    
+    
+    public int findID(ArrayList<Training> Training, int ID)
+          {
+            Boolean found = false;
+            
+            for(int i = 0; i < Training.size();i++)
+              {
+                if(ID == Training.get(i).getId())
+                  {
+                    found = true;
+                    ID = i;
+                  }
+                
+              }
+            if(found != true)
+              {
+                  System.out.println("ID not found/Invalid");
+                  ID = -1;
+              }
+            
+            return ID;
+          }
    
     
 }

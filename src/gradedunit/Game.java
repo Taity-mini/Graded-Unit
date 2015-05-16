@@ -2,6 +2,7 @@ package gradedunit;
 
 import com.bethecoder.ascii_table.ASCIITable;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -289,5 +290,28 @@ public class Game implements Serializable
         ASCIITable.getInstance().printTable(header, secondHalf);
 
       }
+    
+    
+    public int findID(ArrayList<Game> Games, int ID)
+          {
+            Boolean found = false;
+            
+            for(int i = 0; i < Games.size();i++)
+              {
+                if(ID == Games.get(i).getId())
+                  {
+                    found = true;
+                    ID = i;
+                  }
+                
+              }
+            if(found != true)
+              {
+                  System.out.println("ID not found/Invalid");
+                  ID = -1;
+              }
+            
+            return ID;
+          }
 
 }

@@ -6,7 +6,8 @@
 package gradedunit;
 
 import static java.lang.Boolean.FALSE;
-
+import com.bethecoder.ascii_table.ASCIITable;
+import java.util.ArrayList;
 /**
  *
  * @author Andrew Tait (EC1302292)
@@ -134,7 +135,7 @@ public class Junior extends Member
 
     /*GETTERS - END */
     /*SETTERS - START*/
-    public void setId(int id)
+    private void setId(int id)
       {
         this.id = id;
       }
@@ -257,5 +258,28 @@ public class Junior extends Member
         return isValid;
 
       }
+    
+    
+    public int findID(ArrayList<Junior> Juniors, int ID)
+          {
+            Boolean found = false;
+            
+            for(int i = 0; i < Juniors.size();i++)
+              {
+                if(ID == Juniors.get(i).getId())
+                  {
+                    found = true;
+                    ID = i;
+                  }
+                
+              }
+            if(found != true)
+              {
+                  System.out.println("ID not found/Invalid");
+                  ID = -1;
+              }
+            
+            return ID;
+          }
 
 }

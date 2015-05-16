@@ -18,7 +18,7 @@ public class GradedUnit
         //ArrayLists
            ArrayList <Player> Player = new ArrayList();
            ArrayList <Junior> Junior =  new ArrayList(); 
-           ArrayList <Non_Player> Non_player = new ArrayList();
+           ArrayList <Non_Player> Non_Player = new ArrayList();
            ArrayList <ProfileTemplate> Profiles = new ArrayList();
            ArrayList <Game> Games = new ArrayList();
            ArrayList <Training> Training = new ArrayList();
@@ -42,29 +42,36 @@ public class GradedUnit
            //ProfileTemplate.setALL(Catagory, Skills);
            //Games = (ArrayList<Game>) FileOperations.ReadObjects(Games, "Games", dir);
            //Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
-           Training = (ArrayList<Training>) FileOperations.ReadObjects(Training, "Training", dir);
+           //Training = (ArrayList<Training>) FileOperations.ReadObjects(Training, "Training", dir);
+           //Records.getSummary(Player, "Player");
            //ProfileTemplate s1 = new ProfileTemplate(Player.get(0).Name, "Test",Catagory, Skills);
 //           s1.setALL(s1.getCatagory(), s1.getSkills());
 //           s1.getALL(s1.getCatagory(), s1.getSkills());
-           //Records.addGame(Games, "Test", "A" );
-           //Records.addTraining(Training, "Test", "", Player);
-         // FileOperations.WriteObjects(Training,"Training", dir);
-           Training.get(0).getAllDetails();
+            Records.addGame(Games, "Test", "A" );
+           //Records.getSummary(Games,"Games");
+            Records.addTraining(Training, "Test", "Senior", Player);
+           FileOperations.WriteObjects(Training,"Training", dir);
+           //Training.get(0).getAllDetails();
            //Games.get(0).getAllDetails();
+           //System.out.println(Games.get(0));
            //Player.get(0).getDetails();
            //s1.getALL();
-           System.out.println("");
+           
           //s1.setALL(Catagory, Skills);
            
-           //Registration.addPlayer(Player);
+           Registration.addPlayer(Player);
            
-         // FileOperations.WriteObjects(Player,"Player", dir); 
-          //Registration.addJunior(Junior);
-           //Registration.addNonPlayer(Non_players);
+           Registration.addNonPlayer(Non_Player);
             
          
+          Registration.addJunior(Junior);
           
+          FileOperations.WriteObjects(Games, "Games", dir);
+          FileOperations.WriteObjects(Player,"Player", dir); 
+          FileOperations.WriteObjects(Junior,"Junior", dir); 
+          FileOperations.WriteObjects(Non_Player,"Non_Player", dir); 
           
+        
           
       }
     

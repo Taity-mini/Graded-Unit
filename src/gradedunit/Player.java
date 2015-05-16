@@ -1,7 +1,7 @@
 package gradedunit;
 
 import java.util.ArrayList;
-
+import com.bethecoder.ascii_table.ASCIITable;
 
 /**
  *
@@ -118,6 +118,9 @@ public class Player extends Member
     @Override
     public void getDetails()
       {
+          System.out.println("");
+          System.out.println("Player ID:" + this.getId());
+          System.out.println("******************************************************");
           System.out.println("Name:     "           + this.getName());
           System.out.println("Address:  "           + this.getAddress());
           System.out.println("PostCode: "           + this.getPostCode());
@@ -129,11 +132,15 @@ public class Player extends Member
           System.out.println("Next Of Kin: "        + this.getNextOfKin());
           System.out.println("Next Of Kin Tel: "    + this.getNextOfKin_Tel());
           System.out.println("Doctor Name: "        + this.getDoctor_Name());
+          System.out.println("Doctor Tel: "         + this.getDoctor_Tel());
           System.out.println("Health Info: "        + this.getDoctor_Tel());
-          System.out.println("Player position: "    + this.getPlayer_position());   
-          
-          
+          System.out.println("Player position: "    + this.getPlayer_position());
+          System.out.println("******************************************************");
+       
       }
+    
+    
+  
 
     //=======END Getters=======\\
     //=======START Setters=======\\
@@ -180,11 +187,33 @@ public class Player extends Member
       	public void setEmail(String Email)
       {
         this.Email = Email;
-      }  
+      }
+        
         
         
         
       //=======END Setters=======\\
 
+        public int findID(ArrayList<Player> Players, int ID)
+          {
+            Boolean found = false;
+            
+            for(int i = 0; i < Players.size();i++)
+              {
+                if(ID == Players.get(i).getId())
+                  {
+                    found = true;
+                    ID = i;
+                  }
+                
+              }
+            if(found != true)
+              {
+                  System.out.println("ID not found/Invalid");
+                  ID = -1;
+              }
+            
+            return ID;
+          }
     
 }
