@@ -251,7 +251,7 @@ public class Records
                 break;
 
             default:
-                System.out.println("Invalid Member class type - Only Player or Junior");
+                System.out.println("Invalid Member class type - Only Player or Junior, Game");
                 return;
           }
 

@@ -8,12 +8,12 @@ public class SkillSet
 {
     private String Skill;
     private int Skill_Level;
-    private String Catagory;
+    private String Category;
 
-    public SkillSet(String Skill, String Catagory)
+    public SkillSet(String Skill, String Category)
       {
         this.Skill = Skill;
-        this.Catagory = Catagory;
+        this.Category = Category;
       }
 
     public String getSkill()
@@ -28,7 +28,7 @@ public class SkillSet
 
     public String getCatagories()
       {
-        return Catagory;
+        return Category;
       }
 
     public void setSkill(String Skill)
@@ -43,7 +43,7 @@ public class SkillSet
 
     public void setCatagories(String Catagories)
       {
-        this.Catagory = Catagories;
+        this.Category = Catagories;
       }
     
 }

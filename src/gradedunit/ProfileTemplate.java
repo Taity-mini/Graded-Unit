@@ -3,7 +3,7 @@ package gradedunit;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import gradedunit.Catagory.*;
+import gradedunit.Category.*;
 import gradedunit.SkillSet.*;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -19,13 +19,13 @@ public class ProfileTemplate implements Serializable
     private String MemberClass;
     
    
-    ArrayList<Catagory> Catagory = new ArrayList();
+    ArrayList<Category> Category = new ArrayList();
     ArrayList<SkillSet> Skills = new ArrayList();
     
-    public ProfileTemplate(String PlayerName, String Squad,ArrayList<Catagory> Catagory, ArrayList<SkillSet> Skills)
+    public ProfileTemplate(String PlayerName, String Squad,ArrayList<Category> Category, ArrayList<SkillSet> Skills)
       {
         this.PlayerName = PlayerName;
-        this.Catagory = Catagory;
+        this.Category = Category;
         this.Skills = Skills;
       }
 
@@ -41,9 +41,9 @@ public class ProfileTemplate implements Serializable
       }
 
 
-    public ArrayList<Catagory> getCatagory()
+    public ArrayList<Category> getCategory()
       {
-        return Catagory;
+        return Category;
       }
 
     public ArrayList<SkillSet> getSkills()
@@ -56,16 +56,16 @@ public class ProfileTemplate implements Serializable
    
   
 
-    public void setALL(ArrayList<Catagory> Catagory, ArrayList<SkillSet> Skills)
+    public void setALL(ArrayList<Category> Category, ArrayList<SkillSet> Skills)
       {
         Scanner set = new Scanner(System.in);
-        for (Catagory c : Catagory)
+        for (Category c : Category)
           {
-            System.out.println("Catagory:" + c.getCatagory());
+            System.out.println("Category:" + c.getCategory());
 
             for (SkillSet s : Skills)
               {
-                if (c.getCatagory().equals(s.getCatagories()))
+                if (c.getCategory().equals(s.getCatagories()))
                   {
                     System.out.println(s.getSkill());
                     System.out.println("Enter Skill Level: (1-5) :");
@@ -80,13 +80,13 @@ public class ProfileTemplate implements Serializable
     
      public void getALL()
       {
-        for (Catagory c : Catagory)
+        for (Category c : Category)
           {
-            System.out.print("Catagory:" + c.getCatagory());
+            System.out.print("Category:" + c.getCategory());
             for (Iterator<SkillSet> it = Skills.iterator(); it.hasNext();)
               {
                 SkillSet s = it.next();
-                if (c.getCatagory().equals(s.getCatagories()))
+                if (c.getCategory().equals(s.getCatagories()))
                   {
                     System.out.print(s.getSkill());
                     System.out.println("Skill Level: (1-5) :");

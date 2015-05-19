@@ -5,9 +5,7 @@
         <group>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Training.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/ProfileTemplate.java</file>
-            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Catagory.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/SkillSet.java</file>
-            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Login.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Junior.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/FileOperations.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/InputValidation.java</file>
@@ -18,7 +16,7 @@
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Consts.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Member.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/GradedUnit.java</file>
-            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Main.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Category.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Player.java</file>
             <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/GradedUnit/src/gradedunit/Records.java</file>
         </group>

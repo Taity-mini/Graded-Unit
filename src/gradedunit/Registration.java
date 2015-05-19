@@ -12,8 +12,12 @@ public class Registration
 
     public static void addPlayer(ArrayList<Player> Player)
       {
-         //create scanner to accept user input
+        //create scanner to accept user input
         Scanner players = new Scanner(System.in);
+
+        //Input Validation variables
+        Boolean check;
+        String temp;
 
         //Local variables used to store information of
         String Name;
@@ -36,7 +40,6 @@ public class Registration
         //Player Member form
         System.out.println("Rugby Players Registration Form");
         System.out.println("******************************************************");
-       
         System.out.print("Name: ");
         Name = players.nextLine();
         System.out.print("Address: ");
@@ -44,26 +47,67 @@ public class Registration
         System.out.print("PostCode: ");
         PostCode = players.nextLine();
 
-        System.out.print("SRU Number: ");
-        SRU = Integer.parseInt(players.nextLine());
-        System.out.println("Date of Birth: ");
+        do
+          {
+
+            System.out.print("SRU Number: ");
+            temp = (players.nextLine());
+            check = InputValidation.isIntValid(temp);
+
+          } while (check.equals(false));
+        SRU = Integer.parseInt(temp);
+
+        System.out.print("Date of Birth (DD/MM/YYYY): ");
         DOB = players.nextLine();
-        System.out.print("Telephone Number: ");
-        TelNum = Integer.parseInt(players.nextLine()); ;
-        System.out.print("Mobile Number: ");
-        MobNum = Integer.parseInt(players.nextLine()); ;
+
+        do
+          {
+            System.out.print("Telephone Number: ");
+            temp = (players.nextLine());
+            check = InputValidation.isIntValid(temp);
+          } while (check.equals(false));
+        TelNum = Integer.parseInt(temp);
+
+        do
+          {
+
+            System.out.print("Mobile Number: ");
+            temp = (players.nextLine());
+            check = InputValidation.isIntValid(temp);
+
+          } while (check.equals(false));
+
+        MobNum = Integer.parseInt(temp);;
         System.out.print("Email Address: ");
         Email = players.nextLine();
 
         System.out.println("Additional Fields below: ");
         System.out.print("Next of Kin - Name: ");
         nextOfKin = players.nextLine();
-        System.out.print("Next of Kin - Telephone Number: ");
-        nextOfKin_Tel = Integer.parseInt(players.nextLine()); ;
+        do
+          {
+
+            System.out.print("Next of Kin - Telephone Number: ");
+            temp = (players.nextLine());
+            check = InputValidation.isIntValid(temp);
+
+          } while (check.equals(false));
+
+        nextOfKin_Tel = Integer.parseInt(temp);
         System.out.print("Doctor Name: ");
         doctor_Name = players.nextLine();
         System.out.print("Doctor Telephone: ");
-        doctor_Tel = Integer.parseInt(players.nextLine()); ;
+        
+        do
+          {
+
+            System.out.print("Doctor Telephone: ");
+            temp = (players.nextLine());
+            check = InputValidation.isIntValid(temp);
+
+          } while (check.equals(false));
+		 
+        doctor_Tel = Integer.parseInt(temp);;
         System.out.print("Known Health Issues: ");
         healthInfo = players.nextLine();
         System.out.print("Player position: ");
@@ -101,7 +145,7 @@ public class Registration
         String healthInfo;
         String Player_position;
 
-       		//Junior Player Member form
+        //Junior Player Member form
         System.out.println("******************************************************");
         System.out.println("Junior Player's Registration Form");
         System.out.print("Name: ");
@@ -112,13 +156,13 @@ public class Registration
         PostCode = juniors.nextLine();
 
         System.out.print("SRU Number: ");
-        SRU = Integer.parseInt(juniors.nextLine()); 
+        SRU = Integer.parseInt(juniors.nextLine());
         System.out.print("Date of Birth: ");
         DOB = juniors.nextLine();
         System.out.print("Telephone Number: ");
-        TelNum = Integer.parseInt(juniors.nextLine()); 
+        TelNum = Integer.parseInt(juniors.nextLine());
         System.out.print("Mobile Number: ");
-        MobNum = Integer.parseInt(juniors.nextLine()); 
+        MobNum = Integer.parseInt(juniors.nextLine());
         System.out.print("Email Address: ");
         Email = juniors.nextLine();
 
@@ -140,7 +184,7 @@ public class Registration
         Doc_Address = juniors.nextLine();
         System.out.print("Known Health Issues: ");
         healthInfo = juniors.nextLine();
-        
+
         System.out.print("Player position: ");
         Player_position = juniors.nextLine();
         Junior.add(new Junior(Name, Address, PostCode, SRU, DOB, TelNum, MobNum, Email, Guardian_Name, Guardian_Relationship, Guardian_Address, Guardian_Tel, Doc_Name, Doc_Address, Doc_Tel_Num, healthInfo, Player_position));
@@ -195,9 +239,5 @@ public class Registration
         //may use later on..
 
       }
-    
-    
-    
-    
 
 }

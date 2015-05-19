@@ -1,78 +1,106 @@
 package gradedunit;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Andrew Tait (EC1302292)
  */
-public class GradedUnit 
+public class GradedUnit
 {
 
     public static void main(String[] args) throws IOException
       {
         //Variables used throughtout the program
-         String dir = Consts.FILE_DIRECTORY;
-        
+        String dir = Consts.FILE_DIRECTORY;
+
         //ArrayLists
-           ArrayList <Player> Player = new ArrayList();
-           ArrayList <Junior> Junior =  new ArrayList(); 
-           ArrayList <Non_Player> Non_Player = new ArrayList();
-           ArrayList <ProfileTemplate> Profiles = new ArrayList();
-           ArrayList <Game> Games = new ArrayList();
-           ArrayList <Training> Training = new ArrayList();
-          
-           ArrayList <Catagory> Catagory = new ArrayList();
-           Catagory.add(new Catagory("Passing"));
-           Catagory.add(new Catagory("Tackling"));
-           Catagory.add(new Catagory("Kicking"));
-           ArrayList <SkillSet> Skills = new ArrayList();
-           Skills.add(new SkillSet("Standard", "Passing"));
-           Skills.add(new SkillSet("Spin", "Passing"));
-           Skills.add(new SkillSet("Pop", "Passing"));
-           Skills.add(new SkillSet("Front", "Tackling"));
-           Skills.add(new SkillSet("Rear", "Tackling"));
-           Skills.add(new SkillSet("Side", "Tackling"));
-           Skills.add(new SkillSet("Scrabble", "Tackling"));
-           Skills.add(new SkillSet("Drop", "Kicking"));
-           Skills.add(new SkillSet("Punt", "Kicking"));
-           Skills.add(new SkillSet("Grubber", "Kicking"));
-           Skills.add(new SkillSet("Goal", "Kicking"));
-           //ProfileTemplate.setALL(Catagory, Skills);
-           //Games = (ArrayList<Game>) FileOperations.ReadObjects(Games, "Games", dir);
-           //Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
-           //Training = (ArrayList<Training>) FileOperations.ReadObjects(Training, "Training", dir);
-           //Records.getSummary(Player, "Player");
-           //ProfileTemplate s1 = new ProfileTemplate(Player.get(0).Name, "Test",Catagory, Skills);
-//           s1.setALL(s1.getCatagory(), s1.getSkills());
-//           s1.getALL(s1.getCatagory(), s1.getSkills());
-            Records.addGame(Games, "Test", "A" );
-           //Records.getSummary(Games,"Games");
-            Records.addTraining(Training, "Test", "Senior", Player);
-           FileOperations.WriteObjects(Training,"Training", dir);
-           //Training.get(0).getAllDetails();
-           //Games.get(0).getAllDetails();
-           //System.out.println(Games.get(0));
-           //Player.get(0).getDetails();
-           //s1.getALL();
-           
-          //s1.setALL(Catagory, Skills);
-           
-           Registration.addPlayer(Player);
-           
-           Registration.addNonPlayer(Non_Player);
-            
-         
-          Registration.addJunior(Junior);
-          
-          FileOperations.WriteObjects(Games, "Games", dir);
-          FileOperations.WriteObjects(Player,"Player", dir); 
-          FileOperations.WriteObjects(Junior,"Junior", dir); 
-          FileOperations.WriteObjects(Non_Player,"Non_Player", dir); 
-          
-        
-          
+        ArrayList<Player> Player = new ArrayList();
+        ArrayList<Junior> Junior = new ArrayList();
+        ArrayList<Non_Player> Non_Player = new ArrayList();
+        ArrayList<ProfileTemplate> Profiles = new ArrayList();
+        ArrayList<Game> Games = new ArrayList();
+        ArrayList<Training> Training = new ArrayList();
+
+        ArrayList<Category> Category = new ArrayList();
+        Category.add(new Category("Passing"));
+        Category.add(new Category("Tackling"));
+        Category.add(new Category("Kicking"));
+
+        ArrayList<SkillSet> Skills = new ArrayList();
+        Skills.add(new SkillSet("Standard", "Passing"));
+        Skills.add(new SkillSet("Spin", "Passing"));
+        Skills.add(new SkillSet("Pop", "Passing"));
+        Skills.add(new SkillSet("Front", "Tackling"));
+        Skills.add(new SkillSet("Rear", "Tackling"));
+        Skills.add(new SkillSet("Side", "Tackling"));
+        Skills.add(new SkillSet("Scrabble", "Tackling"));
+        Skills.add(new SkillSet("Drop", "Kicking"));
+        Skills.add(new SkillSet("Punt", "Kicking"));
+        Skills.add(new SkillSet("Grubber", "Kicking"));
+        Skills.add(new SkillSet("Goal", "Kicking"));
+
+        Scanner menu = new Scanner(System.in);
+
+        int choice = 0;
+        Boolean check;
+        String temp;
+
+        try
+          {
+            do
+              {
+                do
+                  {
+                    System.out.println("Simply Rugby Main Menu");
+                    System.out.println("OPTION 1 - Player & Member Management");
+                    System.out.println("OPTION 2 - Game Records");
+                    System.out.println("OPTION 3 - Training Sessions");
+                    System.out.println("OPTION 4 - Settings");
+                    System.out.println("OPTION 5 - Exit");
+                    temp = (menu.nextLine());
+                    check = InputValidation.menuValid(temp, 1, 5);
+
+                  } while (check.equals(false));
+                choice = Integer.parseInt(temp);
+
+                switch (choice)
+                  {
+                    case 1:
+                        Menu.MemberManagement(Player, Junior, Non_Player, Profiles);
+                        break;
+
+                    case 2:
+                        System.out.println("OPTION 2 SELECTED");
+                        break;
+
+                    case 3:
+                        System.out.println("OPTION 3 SELECTED");
+                        break;
+
+                    case 4:
+                        System.out.println("OPTION 4 SELECTED");
+                        break;
+                    case 5:
+                        System.out.println("System exited succesfully");
+                        //call to write arraylists here
+
+                        break;
+                    default:
+                        System.out.println("Invalid option selected");
+                        break;
+
+                  }
+
+              } while (choice != 5);
+
+          } catch (Exception ex)
+          {
+            System.out.println("ERROR: This is not a valid value, please try again!");
+          }
+
       }
-    
+
 }

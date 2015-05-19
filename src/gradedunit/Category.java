@@ -4,25 +4,25 @@ package gradedunit;
  *
  * @author Andrew Tait (EC1302292)
  */
-public class Catagory
+public class Category
 {
-    private String Catagory;
+    private String Category;
     private String Comments;
 
-    public Catagory(String Catagory)
+    public Category(String Category)
       {
-        this.Catagory = Catagory;
+        this.Category = Category;
       }
     
-     public Catagory(String Catagory, String Comments)
+     public Category(String Category, String Comments)
       {
-        this.Catagory = Catagory;
+        this.Category = Category;
         this.Comments = Comments;
       }
 
-    public String getCatagory()
+    public String getCategory()
       {
-        return Catagory;
+        return Category;
       }
 
     public String getComments()
@@ -30,9 +30,9 @@ public class Catagory
         return Comments;
       }
 
-    public void setCatagory(String Catagory)
+    public void setCategory(String Category)
       {
-        this.Catagory = Catagory;
+        this.Category = Category;
       }
 
     public void setComments(String Comments)
