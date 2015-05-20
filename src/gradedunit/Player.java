@@ -1,7 +1,6 @@
 package gradedunit;
 
 import java.util.ArrayList;
-import com.bethecoder.ascii_table.ASCIITable;
 
 /**
  *
@@ -16,6 +15,7 @@ public class Player extends Member
         private int doctor_Tel;
         private String healthInfo;
         private String player_position;
+        
 
     public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_position)
       {

@@ -49,11 +49,11 @@ public class Menu
                         break;
 
                     case 2:
-                        System.out.println("OPTION 2 SELECTED");
+                        System.out.println("Not yet Implemented");
                         break;
 
                     case 3:
-                        System.out.println("OPTION 3 SELECTED");
+                        System.out.println("Not yet Implemented");
                         break;
 
                     case 4:
@@ -78,30 +78,33 @@ public class Menu
     public static void PlayersMenu(ArrayList<Player> Player, ArrayList<ProfileTemplate> Profiles, ArrayList<Category> Category, ArrayList<SkillSet> Skill)
       {
 
-        int arrSize = Player.size();
+        int arrSize = Player.size() - 1;
 
         Scanner players = new Scanner(System.in);
 
         int choice = 0;
         Boolean check;
         String temp;
-        if (arrSize > 0)
+
+        try
           {
-            try
+            outerloop:
+            do
               {
-                do
+                if (!Player.isEmpty())
                   {
+                    innerloop:
                     do
                       {
+
                         System.out.println("Simply Rugby - Rugby Player Menu");
                         System.out.println("OPTION 1 - Add Player");
-                        System.out.println("OPTION 2 - View All Player(S)");
-                        System.out.println("OPTION 3 - Edit Player Information");
-                        System.out.println("OPTION 4 - Player Performance Profiles");
-                        System.out.println("OPTION 5 - Delete Player");
-                        System.out.println("OPTION 6 - Exit");
+                        System.out.println("OPTION 2 - View/Edit/Delete Player(S)");
+                        System.out.println("OPTION 3 - Add Player Performance Profiles");
+                        System.out.println("OPTION 4 - View Player Performance Profiles");
+                        System.out.println("OPTION 5 - Exit");
                         temp = (players.nextLine());
-                        check = InputValidation.menuValid(temp, 1, 6);
+                        check = InputValidation.menuValid(temp, 1, 5);
 
                       } while (check.equals(false));
                     choice = Integer.parseInt(temp);
@@ -113,38 +116,71 @@ public class Menu
                             break;
 
                         case 2:
-                            Records.getSummary(Player, "Player");
+
                             Menu.ModifyMembers(Player, "Player");
                             break;
 
                         case 3:
-                            Registration.editPlayer(Player, 0);
-                            break;
-
-                        case 4:
                             //Local Varibles
 
                             int playerID;
 
                             Scanner profile = new Scanner(System.in);
                             Records.getSummary(Player, "Player");
-//                              do
-//                              {
-//                                System.out.println("Enter ID of player you wish create a profile for");
-//       
-//                                temp = (profile.nextLine());
-//                                check = InputValidation.isIntValid(temp);
-//
-//                              } while (check.equals(false));
-//                             playerID = Integer.parseInt(temp);
-                            //Records.addProfile(Profiles, Category, Skill, Player, 0, "Player");
-                            Profiles.get(0).getALL();
+
+                            do
+                              {
+                                System.out.println("Enter ID of player you wish create a profile for");
+                                temp = (profile.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            playerID = Integer.parseInt(temp);
+
+                            Records.addProfile(Profiles, Category, Skill, Player, playerID, "Player");
+                            //Profiles.get(0).getALL();
                             break;
 
+                        case 4:
+                          {
+                            if (!Profiles.isEmpty())
+                              {
+                                int profileID;
+                                int profileArrSize;
+                                boolean profileCheck;
+                                profileCheck = Records.viewProfile(Profiles, "Player");
+                                if (profileCheck == true)
+                                  {
+
+                                    profileArrSize = Profiles.size() - 1;
+                                    Scanner viewProfile = new Scanner(System.in);
+
+                                    Records.viewProfile(Profiles, "Player");
+
+                                    do
+                                      {
+                                        System.out.println("Enter ID of player you wish view profile of");
+                                        temp = (viewProfile.nextLine());
+                                        check = InputValidation.menuValid(temp, 0, profileArrSize);
+
+                                      } while (check.equals(false));
+                                    profileID = Integer.parseInt(temp);
+
+                                    Profiles.get(profileID).getALL();
+                                  } else if (profileCheck == false)
+                                  {
+                                    System.out.println("No profiles were found");
+                                    break;
+                                  }
+                              } else if (Profiles.isEmpty())
+                              {
+                                System.out.println("Profile list is empty");
+                                break;
+                              }
+                          }
+                        break;
+
                         case 5:
-                            System.out.println("OPTION 4 SELECTED");
-                            break;
-                        case 6:
                             System.out.println("System exited succesfully");
                             //call to write arraylists here
 
@@ -154,18 +190,19 @@ public class Menu
                             break;
 
                       }
+                  } else if (Player.isEmpty())
+                  {
+                    System.out.println("Player List is currently empty, please at least one player to continue.");
+                    System.out.println("Redirecting user to player Registration...");
+                    Registration.addPlayer(Player);
+                    break outerloop;
+                  }
 
-                  } while (choice != 6);
+              } while (choice != 5);
 
-              } catch (NumberFormatException ex)
-              {
-                System.out.println("ERROR: This is not a valid value, please try again!");
-              }
-          } else
+          } catch (NumberFormatException ex)
           {
-            System.out.println("Player List is currently empty, please at least one player to continue.");
-            System.out.println("Redirecting user to player Registration...");
-            Registration.addPlayer(Player);
+            System.out.println("ERROR: This is not a valid value, please try again!");
           }
 
       }
@@ -175,81 +212,150 @@ public class Menu
         Scanner Modify = new Scanner(System.in);
         int ID;
         int arrSize;
-        arrSize = Member.size();
+        arrSize = Member.size() - 1;
+
         int choice = 0;
         Boolean check;
         String temp;
-        
- 
-        
+
         try
           {
             do
               {
-                do
+                if (!Member.isEmpty())
                   {
-                    System.out.println("OPTION 1 - View Additonal Player Details");
-                    System.out.println("OPTION 2 - Edit Player Details");
-                    System.out.println("OPTION 3 - Delete Player");
-                    System.out.println("OPTION 4 - Exit to Main Menu");
-                    temp = (Modify.nextLine());
-                    check = InputValidation.menuValid(temp, 1, 4);
+                    Records.getSummary(Member, MemberClass);
+                    do
+                      {
+                        System.out.println("OPTION 1 - View Additonal Player Details");
+                        System.out.println("OPTION 2 - Edit Player Details");
+                        System.out.println("OPTION 3 - Delete Player");
+                        System.out.println("OPTION 4 - Exit to Main Menu");
+                        temp = (Modify.nextLine());
+                        check = InputValidation.menuValid(temp, 1, 4);
 
-                  } while (check.equals(false));
-                choice = Integer.parseInt(temp);
+                      } while (check.equals(false));
+                    choice = Integer.parseInt(temp);
 
-                switch (choice)
+                    switch (choice)
+                      {
+                        case 1:
+                            arrSize = Member.size() - 1;
+                            Scanner view = new Scanner(System.in);
+                            do
+                              {
+                                System.out.println("Enter Player ID you wish to view");
+                                temp = (view.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            ID = Integer.parseInt(temp);
+                            switch (MemberClass)
+                              {
+                                case "Player":
+                                    ArrayList<Player> Player = new ArrayList();
+                                    Player = (ArrayList<Player>) Member;
+                                    Player.get(ID).getDetails();
+                                    break;
+
+                                case "Junior":
+                                    ArrayList<Junior> Junior = new ArrayList();
+                                    Junior = (ArrayList<Junior>) Member;
+                                    Junior.get(ID).getDetails();
+                                    break;
+
+                              }
+
+                            break;
+
+                        case 2:
+                            Scanner edit = new Scanner(System.in);
+                            do
+                              {
+                                System.out.println("Enter Player ID you wish to view");
+                                temp = (edit.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            ID = Integer.parseInt(temp);
+                            switch (MemberClass)
+                              {
+                                case "Player":
+                                    ArrayList<Player> Player = new ArrayList();
+                                    Player = (ArrayList<Player>) Member;
+                                    Registration.editPlayer(Player, ID);
+                                    break;
+
+                                case "Junior":
+                                    ArrayList<Junior> Junior = new ArrayList();
+                                    Junior = (ArrayList<Junior>) Member;
+                                    //Registration.editPlayer(Junior, ID);
+                                    break;
+
+                                case "Non_Player":
+
+                                    ArrayList<Non_Player> Non_Player = new ArrayList();
+                                    Non_Player = (ArrayList<Non_Player>) Member;
+                                    //Registration.editPlayer(Junior, ID);
+                                    break;
+
+                                default:
+                                    System.out.println("Invalid Class - Only Player, Junior and Non Player Allowed");
+                                    break;
+
+                              }
+
+                            break;
+
+                        case 3:
+                            Scanner delete = new Scanner(System.in);
+                            do
+                              {
+                                System.out.println("Enter Player ID you wish to delete");
+                                temp = (delete.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            ID = Integer.parseInt(temp);
+                            switch (MemberClass)
+                              {
+                                case "Player":
+                                    ArrayList<Player> Player = new ArrayList();
+                                    Player = (ArrayList<Player>) Member;
+                                    Registration.DeleteMember(Player, MemberClass, ID);
+                                    break;
+
+                                case "Junior":
+                                    ArrayList<Junior> Junior = new ArrayList();
+                                    Player = (ArrayList<Player>) Member;
+                                    Registration.DeleteMember(Junior, MemberClass, ID);
+                                    break;
+
+                                case "Non_Player":
+                                    ArrayList<Non_Player> Non_Player = new ArrayList();
+                                    Non_Player = (ArrayList<Non_Player>) Member;
+                                    Registration.DeleteMember(Non_Player, MemberClass, ID);
+                                    break;
+
+                                default:
+                                    System.out.println("Invalid Class - Only Player, Junior and Non Player Allowed");
+                                    break;
+
+                              }
+
+                            break;
+
+                        case 4:
+                            System.out.println("Exit to Main Menu");
+                            break;
+                        default:
+                            System.out.println("Invalid option selected");
+                            break;
+
+                      }
+                  } else if (Member.isEmpty())
                   {
-                    case 1:
-
-                        Scanner view = new Scanner(System.in);
-                        do
-                          {
-                            System.out.println("Enter Player ID you wish to view");
-                            temp = (view.nextLine());
-                            check = InputValidation.menuValid(temp, 0, arrSize);
-
-                          } while (check.equals(false));
-                          ID = Integer.parseInt(temp);
-                          switch (MemberClass)
-                            {
-                              case "Player":
-                              ArrayList<Player> Player = new ArrayList();
-                              Player= (ArrayList<Player>) Member;
-                              Player.get(ID).getDetails();
-                              break;
-                                  
-                              case "Junior":
-                              ArrayList<Junior> Junior = new ArrayList();
-                              Junior= (ArrayList<Junior>) Member;
-                              Junior.get(ID).getDetails();
-                              break;
-                                  
-                                  
-                                  
-                                  
-                            }
-                         
-                        
-
-                        break;
-
-                    case 2:
-                        System.out.println("OPTION 2 SELECTED");
-                        break;
-
-                    case 3:
-                        System.out.println("OPTION 3 SELECTED");
-                        break;
-
-                    case 4:
-                        System.out.println("Exit to Main Menu");
-
-                        break;
-                    default:
-                        System.out.println("Invalid option selected");
-                        break;
-
+                    return;
                   }
 
               } while (choice != 4);
@@ -257,6 +363,11 @@ public class Menu
           } catch (NumberFormatException ex)
           {
             System.out.println("ERROR: This is not a valid value, please try again!");
+          } catch (IndexOutOfBoundsException ex)
+          {
+            System.out.println("Player/Member list is empty, please add at least one player.");
           }
+
       }
-      }
+
+}

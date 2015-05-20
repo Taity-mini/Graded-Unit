@@ -12,7 +12,7 @@ public class Game implements Serializable
 {
 
     private int id;
-    private static int count = 0;
+    private static int count = -1;
 
     private String OppositionName;
     private String MatchDate;

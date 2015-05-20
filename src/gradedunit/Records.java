@@ -160,44 +160,107 @@ public class Records
         System.out.println("Training Session Added");
         System.out.println("******************************************************");
       }
-    
-    public static void addProfile(ArrayList<ProfileTemplate> Profiles,  ArrayList<Category> Category, ArrayList<SkillSet> Skill, ArrayList<?> Member, int id, String MemberClass)
-      {
-        
-        switch(MemberClass)
-          {
-             case "Player":
-               {
-                 ArrayList<Player> Seniors = new ArrayList();
-                 Seniors = (ArrayList<Player>) Member;
 
-                 String Name = Seniors.get(id).getName();
-                 Profiles.add(new ProfileTemplate(Name, MemberClass,Category, Skill));
-                 int ProfileID = 0;
-                 for(int i=0; i > Profiles.size();i++)
-                   {
-                     if (Profiles.get(id).getPlayerName().equals(Name) && Profiles.get(id).getMemberClass().equals(MemberClass))
-                       {
-                           System.out.println(i);
-                        ProfileID = i; 
-                       }
-                   }
-                 //
-                 Profiles.get(ProfileID).setALL();
-               }
-            
-            
+    public static void addProfile(ArrayList<ProfileTemplate> Profiles, ArrayList<Category> Category, ArrayList<SkillSet> Skill, ArrayList<?> Member, int id, String MemberClass)
+      {
+        if (!Member.isEmpty())
+          {
+            switch (MemberClass)
+              {
+                case "Player":
+                  {
+                    ArrayList<Player> Seniors = new ArrayList();
+                    Seniors = (ArrayList<Player>) Member;
+
+                    String Name = Seniors.get(id).getName();
+                    Profiles.add(new ProfileTemplate(Name, MemberClass, Category, Skill));
+                    int ProfileID = 0;
+                    for (int i = 0; i > Profiles.size(); i++)
+                      {
+                        if (Profiles.get(id).getPlayerName().equals(Name) && Profiles.get(id).getMemberClass().equals(MemberClass))
+                          {
+                            System.out.println(i);
+                            ProfileID = i;
+                          }
+                      }
+                    Profiles.get(ProfileID).setALL();
+                  }
+                break;
+
+                case "Junior":
+                  {
+                    ArrayList<Junior> Junior = new ArrayList();
+                    Junior = (ArrayList<Junior>) Member;
+
+                    String Name = Junior.get(id).getName();
+                    Profiles.add(new ProfileTemplate(Name, MemberClass, Category, Skill));
+                    int ProfileID = 0;
+                    for (int i = 0; i > Profiles.size(); i++)
+                      {
+                        if (Profiles.get(id).getPlayerName().equals(Name) && Profiles.get(id).getMemberClass().equals(MemberClass))
+                          {
+                            System.out.println(i);
+                            ProfileID = i;
+                          }
+                      }
+                    Profiles.get(ProfileID).setALL();
+                  }
+                break;
+
+              }
+          } else if (Member.isEmpty())
+          {
+            return;
           }
-        
-        
-        
+
       }
-    
-    
-    
-    
-    
-    
+
+    public static boolean viewProfile(ArrayList<ProfileTemplate> Profiles, String MemberClass)
+      {
+        if (!Profiles.isEmpty())
+          {
+
+            System.out.println(Profiles.size());
+            String[] headers =
+              {
+                "ID",
+                "Player Name",
+                "Member Class",
+              };
+            int count = 0;
+            String[][] Summary = new String[Profiles.size()][headers.length];
+            System.out.println("Working here");
+            for (int i = 0; i < Profiles.size(); i++)
+              {
+                System.out.println("Working here");
+                if (Profiles.get(i).getMemberClass().equals(MemberClass))
+                  {
+                    System.out.println("Help");
+                    Summary[i][0] = Integer.toString(Profiles.get(i).getId());
+                    Summary[i][1] = Profiles.get(i).getPlayerName();
+                    Summary[i][2] = Profiles.get(i).getMemberClass();
+                    ++count;
+                  }
+              }
+            if (count > 0)
+              {
+                ASCIITable.getInstance().printTable(headers, Summary);
+                return true;
+              } else if (count <= 0)
+              {
+                System.out.println("No profiles found, try adding one.");
+                return false;
+                
+              }
+           
+          }
+        else if(Profiles.isEmpty())
+          {
+              System.out.println("Profile List is empty");
+               return false;
+          }
+         return false;
+      }
 
     public static void getSummary(ArrayList<?> Member, String MemberClass)
       {
@@ -275,7 +338,7 @@ public class Records
                 ArrayList<Game> Games = new ArrayList();
                 Games = (ArrayList<Game>) Member;
                 String[][] Summary = new String[Games.size()][headers.length];
-                
+
                 for (int i = 0; i < Games.size(); i++)
                   {
                     Summary[i][0] = Integer.toString(Games.get(i).getId());
@@ -292,10 +355,6 @@ public class Records
                 System.out.println("Invalid Member class type - Only Player or Junior, Game");
                 return;
           }
-        
-        
-        
-        
 
       }
 

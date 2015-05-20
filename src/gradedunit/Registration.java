@@ -126,23 +126,7 @@ public class Registration
         Boolean check;
         String temp;
         String input;
-        //Local variables used to store information of
-        String Name;
-        String Address;
-        String PostCode;
-        int SRU;
-        String DOB;
-        int TelNum;
-        int MobNum;
-        String Email;
-
-        //Additonal fields
-        String nextOfKin;
-        int nextOfKin_Tel;
-        String doctor_Name;
-        int doctor_Tel;
-        String healthInfo;
-        String player_Position;
+     
 
         //Player Member form
         System.out.println("Edit Rugby Players form, ID: " + ID);
@@ -151,7 +135,6 @@ public class Registration
         System.out.print("Name (Current: " + Player.get(ID).getName() + ") ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
-
             Player.get(ID).setName(input);
           }
 
@@ -163,7 +146,7 @@ public class Registration
           }
 
         System.out.print("PostCode(Current :" + Player.get(ID).getPostCode() + ") ");
-        
+
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setPostCode(input);
@@ -188,7 +171,7 @@ public class Registration
           }
 
         System.out.print("Date of Birth (DD/MM/YYYY)(Current :" + Player.get(ID).getDateOfBirth() + ") ");
-       if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setDateOfBirth(temp);
           }
@@ -287,7 +270,7 @@ public class Registration
           }
 
         System.out.print("Known Health Issues: " + Player.get(ID).getHealthInfo() + " ");
-       if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setHealthInfo(input);
           }
@@ -417,11 +400,161 @@ public class Registration
         System.out.println("Non player: " + Name + "Sucessfully added to list.");
         System.out.println("******************************************************");
       }
-
-    private static void addMember(ArrayList<Member> Member)
+    
+    
+     public static void editNonPlayer(ArrayList<Non_Player> Non_Player, int ID)
       {
-        //may use later on..
+        //create scanner to accept user input
+        Scanner NonPlayers = new Scanner(System.in);
+    
+	//Input Validation variables
+        Boolean check;
+        String temp;
+        String input;
+
+        //Non Player Member form
+        System.out.println("Edit Non Player Member, ID: " + ID);
+        System.out.println("Input new value to edit or leave blank");
+        System.out.println("******************************************************");
+        System.out.print("Name (Current: " + Non_Player.get(ID).getName() + ") ");
+        if (NonPlayers.hasNextLine() && !(input = NonPlayers.nextLine()).isEmpty())
+          {
+            Non_Player.get(ID).setName(input);
+          }
+
+        System.out.print("Address(Current :" + Non_Player.get(ID).getAddress() + ") ");
+
+        if (NonPlayers.hasNextLine() && !(input = NonPlayers.nextLine()).isEmpty())
+          {
+            Non_Player.get(ID).setAddress(input);
+          }
+
+        System.out.print("PostCode(Current :" + Non_Player.get(ID).getPostCode() + ") ");
+
+        if (NonPlayers.hasNextLine() && !(input = NonPlayers.nextLine()).isEmpty())
+          {
+            Non_Player.get(ID).setPostCode(input);
+          }
+
+        do
+          {
+
+            System.out.print("SRU Number (Current :" + Non_Player.get(ID).getSRU_Number() + ")  ");
+            temp = (NonPlayers.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+        if (!temp.equals(""))
+          {
+            Non_Player.get(ID).setSRU_Number(Integer.parseInt(temp));
+          }
+
+        System.out.print("Date of Birth (DD/MM/YYYY)(Current :" + Non_Player.get(ID).getDateOfBirth() + ") ");
+        if (NonPlayers.hasNextLine() && !(input = NonPlayers.nextLine()).isEmpty())
+          {
+            Non_Player.get(ID).setDateOfBirth(temp);
+          }
+
+        do
+          {
+            System.out.print("Telephone Number (Current ");
+            temp = (NonPlayers.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+
+        if (!temp.equals(""))
+          {
+            Non_Player.get(ID).setTelNum(Integer.parseInt(temp));
+          }
+
+        do
+          {
+
+            System.out.print("Mobile Number: " + Non_Player.get(ID).getMobNum() + " ");
+            temp = (NonPlayers.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+
+        if (!temp.equals(""))
+          {
+            Non_Player.get(ID).setMobNum(Integer.parseInt(temp));
+          }
+
+        System.out.print("Email Address: " + Non_Player.get(ID).getEmail() + " ");
+        if (NonPlayers.hasNextLine() && !(input = NonPlayers.nextLine()).isEmpty())
+          {
+            Non_Player.get(ID).setEmail(input);
+          }
+
+        //Non_Non_Non_Player.add(new Non_Player(Name, Address, PostCode, SRU, DOB, TelNum, MobNum, Email));
+        System.out.println("Non player: " +  Non_Player.get(ID).getName() + "Sucessfully Updated!");
+        System.out.println("******************************************************");
+      }
+    
+    
+    
+    
+
+    public static void DeleteMember(ArrayList<?> Member, String MemberClass, int ID)
+      {
+        try
+          {
+            if (!Member.isEmpty())
+              {
+
+                switch (MemberClass)
+                  {
+                    case "Player":
+                        ArrayList<Player> Players = new ArrayList();
+                        Players = (ArrayList<Player>) Member;
+                        Players.remove(ID);
+                        System.out.println("Sucessefully Removed " + MemberClass + " ID: " + ID);
+                        break;
+
+                    case "Junior":
+                        ArrayList<Junior> Junior = new ArrayList();
+                        Junior = (ArrayList<Junior>) Member;
+                        Junior.remove(ID);
+                        System.out.println("Sucessefully Removed " + MemberClass + " ID: " + ID);
+                        break;
+
+                    case "Non_Player":
+                        ArrayList<Non_Player> Non_Player = new ArrayList();
+                        Non_Player = (ArrayList<Non_Player>) Member;
+                        Non_Player.remove(ID);
+                        System.out.println("Sucessefully Removed " + MemberClass + " ID: " + ID);
+                        break;
+
+                    default:
+                        System.out.println("Only Member classes allowed!");
+                        break;
+
+                  }
+              } else if (Member.isEmpty())
+              {
+                System.out.println("Item doesn't exist, Please select another ID");
+              }
+          } catch (IndexOutOfBoundsException e)
+          {
+            System.out.println("Item doesn't exist, Please select another ID");
+          }
 
       }
-
 }

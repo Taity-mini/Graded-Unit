@@ -1,6 +1,5 @@
 package gradedunit;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import gradedunit.Category.*;
@@ -17,17 +16,19 @@ public class ProfileTemplate implements Serializable
 
     private String PlayerName;
     private String MemberClass;
-    
-   
+    private int id;
+    private static int count = -1; 
+
     ArrayList<Category> Category = new ArrayList();
     ArrayList<SkillSet> Skills = new ArrayList();
-    
-    public ProfileTemplate(String PlayerName, String Squad,ArrayList<Category> Category, ArrayList<SkillSet> Skills)
+
+    public ProfileTemplate(String PlayerName, String Squad, ArrayList<Category> Category, ArrayList<SkillSet> Skills)
       {
         this.PlayerName = PlayerName;
         this.Category = Category;
         this.Skills = Skills;
         this.MemberClass = Squad;
+        this.setId(++count);
       }
 
     //Getters
@@ -41,7 +42,6 @@ public class ProfileTemplate implements Serializable
         return MemberClass;
       }
 
-
     public ArrayList<Category> getCategory()
       {
         return Category;
@@ -51,14 +51,19 @@ public class ProfileTemplate implements Serializable
       {
         return Skills;
       }
+
+    public int getId()
+      {
+        return id;
+      }
     
+
     //Setters
-
-   
-  
-
     public void setALL()
       {
+        Boolean check;
+        String temp;
+
         Scanner set = new Scanner(System.in);
         for (Category c : Category)
           {
@@ -68,9 +73,16 @@ public class ProfileTemplate implements Serializable
               {
                 if (c.getCategory().equals(s.getCatagories()))
                   {
-                    System.out.println(s.getSkill());
-                    System.out.println("Enter Skill Level: (1-5) :");
-                    s.setSkill_Level(Integer.parseInt(set.nextLine()));
+                    do
+                      {
+                        System.out.println(s.getSkill());
+                        System.out.println("Enter Skill Level: (1-5) :");
+                        temp = (set.nextLine());
+                        check = InputValidation.menuValid(temp, 1, 5);
+
+                      } while (check.equals(false));
+
+                    s.setSkill_Level(Integer.parseInt(temp));
                   }
               }
             System.out.println("Any Comments?");
@@ -78,8 +90,14 @@ public class ProfileTemplate implements Serializable
 
           }
       }
+
+    private void setId(int id)
+      {
+        this.id = id;
+      }
     
-     public void getALL()
+
+    public void getALL()
       {
         for (Category c : Category)
           {
@@ -99,6 +117,5 @@ public class ProfileTemplate implements Serializable
 
           }
       }
-    
 
 }

@@ -42,10 +42,12 @@ public class GradedUnit
         Skills.add(new SkillSet("Grubber", "Kicking"));
         Skills.add(new SkillSet("Goal", "Kicking"));
         Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
-        //Profiles = (ArrayList<ProfileTemplate>)FileOperations.ReadObjects(Profiles, "Profiles", dir);
-        
+        Profiles = (ArrayList<ProfileTemplate>)FileOperations.ReadObjects(Profiles, "Profiles", dir);
+        //Records.addProfile(Profiles, Category, Skills, Player, 0, "Player");
         //Registration.editPlayer(Player, 0);
-        
+        //Profiles.get(0).getALL();
+        Records.viewProfile(Profiles, "Player");
+        //System.exit(1);
         Scanner menu = new Scanner(System.in);
 
         int choice = 0;
