@@ -1,10 +1,12 @@
 package gradedunit;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Andrew Tait (EC1302292)
  */
-public class Category
+public class Category implements Serializable
 {
     private String Category;
     private String Comments;

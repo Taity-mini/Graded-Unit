@@ -1,10 +1,12 @@
 package gradedunit;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Andrew Tait (EC1302292)
  */
-public class SkillSet
+public class SkillSet implements Serializable
 {
     private String Skill;
     private int Skill_Level;

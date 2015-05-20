@@ -12,7 +12,7 @@ public class Training  implements Serializable
 {
     //Local Variables
     private int id;
-    private static int count = 0;
+    private static int count = -1;
 
     
     

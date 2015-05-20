@@ -11,7 +11,7 @@ abstract public class Member implements Serializable
   //Member Form variables
     
     protected int id;
-    protected static int count = 0;
+    protected static int count = -1;
     
     protected String Name;
     protected String Address;

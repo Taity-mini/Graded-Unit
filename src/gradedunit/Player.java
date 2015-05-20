@@ -188,6 +188,38 @@ public class Player extends Member
       {
         this.Email = Email;
       }
+
+    public void setNextOfKin(String nextOfKin)
+      {
+        this.nextOfKin = nextOfKin;
+      }
+
+    public void setNextOfKin_Tel(int nextOfKin_Tel)
+      {
+        this.nextOfKin_Tel = nextOfKin_Tel;
+      }
+
+    public void setDoctor_Name(String doctor_Name)
+      {
+        this.doctor_Name = doctor_Name;
+      }
+
+    public void setDoctor_Tel(int doctor_Tel)
+      {
+        this.doctor_Tel = doctor_Tel;
+      }
+
+    public void setHealthInfo(String healthInfo)
+      {
+        this.healthInfo = healthInfo;
+      }
+
+    public void setPlayer_position(String player_position)
+      {
+        this.player_position = player_position;
+      }
+        
+        
         
         
         

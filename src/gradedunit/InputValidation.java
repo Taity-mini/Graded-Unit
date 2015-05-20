@@ -39,6 +39,38 @@ public class InputValidation
 
       }
     
+      public static boolean isStingEmpty(String input)
+        {
+          
+          try
+          {
+            while(input.equals(null))
+              {
+                
+              }
+            
+            int i = Integer.parseInt(input);
+            
+            if(i < 0)
+              {
+                  System.out.println("Error: Negative number detected, postive numbers only please");
+              }
+            else
+              {
+                return true;
+              }
+            
+           
+          } catch (NumberFormatException e)
+          {
+            System.out.println("Invalid input, Positive Numbers only");
+            return false;
+          }
+        return false;
+        }
+    
+    
+    
     public static boolean menuValid(String input, int start, int end)
       {
          boolean check;

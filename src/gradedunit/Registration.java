@@ -96,8 +96,6 @@ public class Registration
         nextOfKin_Tel = Integer.parseInt(temp);
         System.out.print("Doctor Name: ");
         doctor_Name = players.nextLine();
-        System.out.print("Doctor Telephone: ");
-        
         do
           {
 
@@ -106,8 +104,8 @@ public class Registration
             check = InputValidation.isIntValid(temp);
 
           } while (check.equals(false));
-		 
-        doctor_Tel = Integer.parseInt(temp);;
+
+        doctor_Tel = Integer.parseInt(temp);
         System.out.print("Known Health Issues: ");
         healthInfo = players.nextLine();
         System.out.print("Player position: ");
@@ -116,6 +114,192 @@ public class Registration
         //Add new registered player to player arraylist
         Player.add(new Player(Name, Address, PostCode, SRU, DOB, TelNum, MobNum, Email, nextOfKin, nextOfKin_Tel, doctor_Name, doctor_Tel, healthInfo, player_Position));
         System.out.println("Rugby player: " + Name + " ,Sucessfully added to list.");
+        System.out.println("******************************************************");
+      }
+
+    public static void editPlayer(ArrayList<Player> Player, int ID)
+      {
+        //create scanner to accept user input
+        Scanner players = new Scanner(System.in);
+
+        //Input Validation variables
+        Boolean check;
+        String temp;
+        String input;
+        //Local variables used to store information of
+        String Name;
+        String Address;
+        String PostCode;
+        int SRU;
+        String DOB;
+        int TelNum;
+        int MobNum;
+        String Email;
+
+        //Additonal fields
+        String nextOfKin;
+        int nextOfKin_Tel;
+        String doctor_Name;
+        int doctor_Tel;
+        String healthInfo;
+        String player_Position;
+
+        //Player Member form
+        System.out.println("Edit Rugby Players form, ID: " + ID);
+        System.out.println("Input new value to edit or leave blank");
+        System.out.println("******************************************************");
+        System.out.print("Name (Current: " + Player.get(ID).getName() + ") ");
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+
+            Player.get(ID).setName(input);
+          }
+
+        System.out.print("Address(Current :" + Player.get(ID).getAddress() + ") ");
+
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setAddress(input);
+          }
+
+        System.out.print("PostCode(Current :" + Player.get(ID).getPostCode() + ") ");
+        
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setPostCode(input);
+          }
+
+        do
+          {
+
+            System.out.print("SRU Number (Current :" + Player.get(ID).getSRU_Number() + ")  ");
+            temp = (players.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+        if (!temp.equals(""))
+          {
+            Player.get(ID).setSRU_Number(Integer.parseInt(temp));
+          }
+
+        System.out.print("Date of Birth (DD/MM/YYYY)(Current :" + Player.get(ID).getDateOfBirth() + ") ");
+       if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setDateOfBirth(temp);
+          }
+
+        do
+          {
+            System.out.print("Telephone Number (Current ");
+            temp = (players.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+
+        if (!temp.equals(""))
+          {
+            Player.get(ID).setTelNum(Integer.parseInt(temp));
+          }
+
+        do
+          {
+
+            System.out.print("Mobile Number: " + Player.get(ID).getMobNum() + " ");
+            temp = (players.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+
+        if (!temp.equals(""))
+          {
+            Player.get(ID).setMobNum(Integer.parseInt(temp));
+          }
+
+        System.out.print("Email Address: " + Player.get(ID).getEmail() + " ");
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setEmail(input);
+          }
+        System.out.println("Additional Fields below: ");
+        System.out.print("Next of Kin - Name: " + Player.get(ID).getNextOfKin() + " ");
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setNextOfKin(input);
+          }
+
+        do
+          {
+
+            System.out.print("Next of Kin - Telephone Number: " + Player.get(ID).getNextOfKin_Tel() + " ");
+            temp = (players.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+
+        if (!temp.equals(""))
+          {
+            Player.get(ID).setNextOfKin_Tel(Integer.parseInt(temp));
+          }
+
+        System.out.print("Doctor Name: " + Player.get(ID).getDoctor_Name() + " ");
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setDoctor_Name(input);
+          }
+
+        do
+          {
+
+            System.out.print("Doctor Telephone: " + Player.get(ID).getDoctor_Tel() + " ");
+            temp = (players.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+
+        if (!temp.equals(""))
+          {
+            Player.get(ID).setDoctor_Tel(Integer.parseInt(temp));
+          }
+
+        System.out.print("Known Health Issues: " + Player.get(ID).getHealthInfo() + " ");
+       if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setHealthInfo(input);
+          }
+
+        System.out.print("Player position: " + Player.get(ID).getPlayer_position() + " ");
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
+          {
+            Player.get(ID).setPlayer_position(input);
+          }
+
+        //Add new registered player to player arraylist
+        //System.out.println("Rugby player: " + Name + " ,Sucessfully added to list.");
         System.out.println("******************************************************");
       }
 

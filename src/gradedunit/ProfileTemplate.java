@@ -27,6 +27,7 @@ public class ProfileTemplate implements Serializable
         this.PlayerName = PlayerName;
         this.Category = Category;
         this.Skills = Skills;
+        this.MemberClass = Squad;
       }
 
     //Getters
@@ -56,7 +57,7 @@ public class ProfileTemplate implements Serializable
    
   
 
-    public void setALL(ArrayList<Category> Category, ArrayList<SkillSet> Skills)
+    public void setALL()
       {
         Scanner set = new Scanner(System.in);
         for (Category c : Category)

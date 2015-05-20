@@ -41,7 +41,11 @@ public class GradedUnit
         Skills.add(new SkillSet("Punt", "Kicking"));
         Skills.add(new SkillSet("Grubber", "Kicking"));
         Skills.add(new SkillSet("Goal", "Kicking"));
-
+        Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
+        //Profiles = (ArrayList<ProfileTemplate>)FileOperations.ReadObjects(Profiles, "Profiles", dir);
+        
+        //Registration.editPlayer(Player, 0);
+        
         Scanner menu = new Scanner(System.in);
 
         int choice = 0;
@@ -69,7 +73,7 @@ public class GradedUnit
                 switch (choice)
                   {
                     case 1:
-                        Menu.MemberManagement(Player, Junior, Non_Player, Profiles);
+                        Menu.MemberManagement(Player, Junior, Non_Player, Profiles, Category, Skills);
                         break;
 
                     case 2:
@@ -85,11 +89,13 @@ public class GradedUnit
                         break;
                     case 5:
                         System.out.println("System exited succesfully");
-                        //call to write arraylists here
-
+                        //call to write arraylists here 
+                        FileOperations.WriteObjects(Player, "Player", dir);
+                        FileOperations.WriteObjects(Profiles, "Profiles", dir);
                         break;
                     default:
                         System.out.println("Invalid option selected");
+                        
                         break;
 
                   }

@@ -160,6 +160,44 @@ public class Records
         System.out.println("Training Session Added");
         System.out.println("******************************************************");
       }
+    
+    public static void addProfile(ArrayList<ProfileTemplate> Profiles,  ArrayList<Category> Category, ArrayList<SkillSet> Skill, ArrayList<?> Member, int id, String MemberClass)
+      {
+        
+        switch(MemberClass)
+          {
+             case "Player":
+               {
+                 ArrayList<Player> Seniors = new ArrayList();
+                 Seniors = (ArrayList<Player>) Member;
+
+                 String Name = Seniors.get(id).getName();
+                 Profiles.add(new ProfileTemplate(Name, MemberClass,Category, Skill));
+                 int ProfileID = 0;
+                 for(int i=0; i > Profiles.size();i++)
+                   {
+                     if (Profiles.get(id).getPlayerName().equals(Name) && Profiles.get(id).getMemberClass().equals(MemberClass))
+                       {
+                           System.out.println(i);
+                        ProfileID = i; 
+                       }
+                   }
+                 //
+                 Profiles.get(ProfileID).setALL();
+               }
+            
+            
+          }
+        
+        
+        
+      }
+    
+    
+    
+    
+    
+    
 
     public static void getSummary(ArrayList<?> Member, String MemberClass)
       {
@@ -254,6 +292,10 @@ public class Records
                 System.out.println("Invalid Member class type - Only Player or Junior, Game");
                 return;
           }
+        
+        
+        
+        
 
       }
 
