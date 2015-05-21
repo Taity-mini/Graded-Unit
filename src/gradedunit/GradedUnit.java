@@ -43,6 +43,9 @@ public class GradedUnit
         Skills.add(new SkillSet("Goal", "Kicking"));
         Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
         Profiles = (ArrayList<ProfileTemplate>)FileOperations.ReadObjects(Profiles, "Profiles", dir);
+        Games = (ArrayList<Game>) FileOperations.ReadObjects(Games, "Games", dir);
+        Records.editGame(Games, 0);
+        Games.get(0).getAllDetails();
         //Records.addProfile(Profiles, Category, Skills, Player, 0, "Player");
         //Registration.editPlayer(Player, 0);
         //Profiles.get(0).getALL();
@@ -79,7 +82,7 @@ public class GradedUnit
                         break;
 
                     case 2:
-                        System.out.println("OPTION 2 SELECTED");
+                        Menu.GameMenu(Games, "Games");
                         break;
 
                     case 3:
@@ -94,6 +97,7 @@ public class GradedUnit
                         //call to write arraylists here 
                         FileOperations.WriteObjects(Player, "Player", dir);
                         FileOperations.WriteObjects(Profiles, "Profiles", dir);
+                        FileOperations.WriteObjects(Games, "Games", dir);
                         break;
                     default:
                         System.out.println("Invalid option selected");

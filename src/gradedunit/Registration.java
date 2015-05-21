@@ -518,7 +518,6 @@ public class Registration
           {
             if (!Member.isEmpty())
               {
-
                 switch (MemberClass)
                   {
                     case "Player":

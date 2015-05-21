@@ -370,4 +370,96 @@ public class Menu
 
       }
 
+    public static void GameMenu(ArrayList<Game> Game, String MemberClass)
+      {
+
+        Scanner Games = new Scanner(System.in);
+        int arrSize;
+
+        int choice = 0;
+        Boolean check;
+        String temp;
+        String coach;
+
+        try
+          {
+            outerloop:
+            do
+              {
+
+                if (!Game.isEmpty())
+                  {
+
+                    do
+                      {
+                        System.out.println("Simply Rugby Main Menu");
+                        System.out.println("OPTION 1 - Add Game");
+                        System.out.println("OPTION 2 - View Games");
+
+                        System.out.println("OPTION 3 - Exit");
+                        temp = (Games.nextLine());
+                        check = InputValidation.menuValid(temp, 1, 3);
+
+                      } while (check.equals(false));
+                    choice = Integer.parseInt(temp);
+
+                    switch (choice)
+                      {
+                        case 1:
+                            Scanner add = new Scanner(System.in);
+
+                            System.out.print("Enter Coach Name:");
+                            coach = add.nextLine();
+                            Records.addGame(Game, coach, "Player");
+                            break;
+
+                        case 2:
+                            arrSize = Game.size() - 1;
+                            Records.getSummary(Game, MemberClass);
+                            Scanner viewProfile = new Scanner(System.in);
+
+                            int GameID;
+
+                            do
+                              {
+                                System.out.println("Please Game ID to view additional details");
+                                temp = (viewProfile.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            GameID = Integer.parseInt(temp);
+                            Game.get(GameID).getAllDetails();
+
+                            break;
+
+                        case 3:
+                            System.out.println("Exit to Main Menu");
+
+                            break;
+                        default:
+                            System.out.println("Invalid option selected");
+
+                            break;
+
+                      }
+
+                  } else if (Game.isEmpty())
+                  {
+                    System.out.println("Game list is empty, please add at least one game");
+                    Scanner add = new Scanner(System.in);
+                    System.out.print("Enter Coach Name:");
+                    coach = add.nextLine();
+                    Records.addGame(Game, coach, "Player");
+
+                  }
+
+              } while (choice != 3);
+
+          } catch (Exception ex)
+          {
+            System.out.println("ERROR: This is not a valid value, please try again!");
+          }
+
+      }
+
 }

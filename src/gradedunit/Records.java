@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class Records
 {
-
+    
     public static void addGame(ArrayList<Game> Game, String Coach, String Squad)
       {
         //Create scanner to accept user input
@@ -22,6 +22,11 @@ public class Records
         String KickoffTime;
         String Result;
         String Score;
+
+        //temp variables
+        Boolean check;
+        String temp;
+        String input;
 
         //First Half Varibles
         String SimplyRugby_scores_fh;
@@ -51,7 +56,7 @@ public class Records
         Result = Match.nextLine();
         System.out.print("Score: ");
         Score = Match.nextLine();
-          //General Game Information END
+        //General Game Information END
 
         //First Half Reports
         System.out.println("");
@@ -62,15 +67,29 @@ public class Records
         System.out.println("");
         System.out.print("Scores and Comments: ");
         SimplyRugby_scores_fh = Match.nextLine();
-        System.out.print("Points for: ");
-        SimplyRugby_points_fh = Integer.parseInt(Match.nextLine());
+        
+        do
+          {
+            System.out.print("Points for: ");
+            temp = (Match.nextLine());
+            check = InputValidation.isIntValid(temp);
+          } while (check.equals(false));
+        SimplyRugby_points_fh = Integer.parseInt(temp);
+        
         System.out.println("");
         System.out.println(OppositionName + ": ");
         System.out.println("");
         System.out.print("Scores and Comments: ");
         Opposition_scores_fh = Match.nextLine();
-        System.out.print("Points against: ");
-        Opposition_points_fh = Integer.parseInt(Match.nextLine());
+        
+        do
+          {
+            System.out.print("Points against: ");
+            temp = (Match.nextLine());
+            check = InputValidation.isIntValid(temp);
+          } while (check.equals(false));
+        Opposition_points_fh = Integer.parseInt(temp);
+        
         System.out.println("***********************");
 
         //Second Half Reports
@@ -82,37 +101,220 @@ public class Records
         System.out.println("");
         System.out.print("Scores and Comments: ");
         SimplyRugby_scores_sh = Match.nextLine();
-        System.out.print("Points for: ");
-        SimplyRugby_points_sh = Integer.parseInt(Match.nextLine());
+        
+        do
+          {
+            System.out.print("Points for: ");
+            temp = (Match.nextLine());
+            check = InputValidation.isIntValid(temp);
+          } while (check.equals(false));
+        SimplyRugby_points_sh = Integer.parseInt(temp);
+        
         System.out.println("");
         System.out.println(OppositionName + ": ");
         System.out.println("");
         System.out.print("Scores and Comments: ");
         Opposition_scores_sh = Match.nextLine();
         System.out.print("Points against: ");
-        Opposition_points_sh = Integer.parseInt(Match.nextLine());
-
+        do
+          {
+            System.out.print("Points against: ");
+            temp = (Match.nextLine());
+            check = InputValidation.isIntValid(temp);
+          } while (check.equals(false));
+        Opposition_points_sh = Integer.parseInt(temp);
+        
         Game.add(new Game(OppositionName, MatchDate, Location, KickoffTime, Result, Coach, Score, Squad, SimplyRugby_scores_fh, SimplyRugby_points_fh, Opposition_scores_fh, Opposition_points_fh, SimplyRugby_scores_sh, SimplyRugby_points_sh, Opposition_scores_sh, Opposition_points_sh));
-
+        
       }
+    
+    public static void editGame(ArrayList<Game> Game, int gameID)
+      {
+        //Create scanner to accept user input
+        Scanner Match = new Scanner(System.in);
+        
+        //temp variables
+        Boolean check;
+        String temp;
+        String input;
 
+        //General Game Information START
+        System.out.println("Edit Game Record Form, ID: " + gameID);
+        System.out.println("******************************************************");
+        System.out.println("");
+        System.out.println("Opposition Name: Current(" + Game.get(gameID).getOppositionName() + ")");
+        System.out.print("New Value: ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setOppositionName(input);
+          }
+        //OppositionName = Match.nextLine();
+        System.out.print("Date of Match (DD/MM/YYYY): ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setMatchDate(input);
+          }
+        
+        System.out.print("Location: (Home/Away): ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setLocation(input);
+          }
+        
+        System.out.print("K/0 Time: ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setKickoffTime(input);
+          }
+        
+      
+        System.out.println("Result (Won/Lost/Drew): ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setResult(input);
+          }
+        
+        System.out.print("Score: ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setScore(input);
+          }
+        //General Game Information END
+
+        //First Half Reports
+        System.out.println("");
+        System.out.println("*********************");
+        System.out.println("First Half Reports");
+        System.out.println("");
+        System.out.println("Simply Rugby:");
+        System.out.println("");
+        System.out.print("Scores and Comments: ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setSimplyRugby_scores_fh(input);
+          }
+        
+        do
+          {
+            System.out.print("Points for: ");
+            temp = (Match.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+        if (!temp.equals(""))
+          {
+            Game.get(gameID).setSimplyRugby_points_fh(Integer.parseInt(temp));
+          }
+        
+        System.out.println("");
+        System.out.println(Game.get(gameID).getOppositionName() + ": ");
+        System.out.println("");
+        System.out.print("Scores and Comments: ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setOpposition_scores_fh(input);
+          }
+        
+        do
+          {
+            System.out.print("Points against: ");
+            temp = (Match.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+        if (!temp.equals(""))
+          {
+            Game.get(gameID).setOpposition_points_fh(Integer.parseInt(temp));
+          }
+        
+        System.out.println("***********************");
+
+        //Second Half Reports
+        System.out.println("");
+        System.out.println("***********************");
+        System.out.println("Second Half Reports");
+        System.out.println("");
+        System.out.println("Simply Rugby: ");
+        System.out.println("");
+        System.out.print("Scores and Comments: ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setSimplyRugby_scores_sh(input);
+          }
+        
+        do
+          {
+            System.out.print("Points for: ");
+            temp = (Match.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+        if (!temp.equals(""))
+          {
+            Game.get(gameID).setSimplyRugby_points_sh(Integer.parseInt(temp));
+          }
+        
+        System.out.println("");
+        System.out.println(Game.get(gameID).getOppositionName() + ": ");
+        System.out.println("");
+        System.out.print("Scores and Comments: ");
+        if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
+          {
+            Game.get(gameID).setOpposition_scores_sh(input);
+          }
+        System.out.print("Points against: ");
+        do
+          {
+            System.out.print("Points against: ");
+            temp = (Match.nextLine());
+            if (temp.equals(""))
+              {
+                check = true;
+              } else
+              {
+                check = InputValidation.isIntValid(temp);
+              }
+          } while (check.equals(false));
+        if (!temp.equals(""))
+          {
+            Game.get(gameID).setOpposition_points_sh(Integer.parseInt(temp));
+          }
+        
+          System.out.println("Game ID: " + gameID + "Sucessfully Updated");
+      }
+    
     public static void addTraining(ArrayList<Training> Session, String Coach, String Squad, ArrayList<?> PlayersPresent)
       {
         //Local Variables 
-        //String Coach;
+
         String Date;
         String Location;
         String Time;
         String SkillsActivites;
         String Incidents;
         ArrayList<String> Names = new ArrayList();
-
+        
         Scanner Train = new Scanner(System.in);
-
+        
         System.out.println("New Training Record/Session Form:");
         System.out.println("******************************************************");
         System.out.println("");
-        System.out.println("Coach Orangising: " + Coach);
+        System.out.println("Coach Organising: " + Coach);
         System.out.print("Date: ");
         Date = Train.nextLine();
         System.out.print("Location: ");
@@ -124,7 +326,7 @@ public class Records
         SkillsActivites = Train.nextLine();
         System.out.println("Accidents/injuries: ");
         System.out.print(">");
-
+        
         Incidents = Train.nextLine();
 
         //Get Player names from ArrayList()
@@ -133,34 +335,34 @@ public class Records
             case "Senior":
                 ArrayList<Player> Seniors = new ArrayList();
                 Seniors = (ArrayList<Player>) PlayersPresent;
-
+                
                 for (Player s : Seniors)
                   {
                     Names.add(s.getName());
                     System.out.println(s.getName());
                   }
-
+                
                 break;
-
+            
             case "Junior":
                 ArrayList<Junior> Juniors = new ArrayList();
                 Juniors = (ArrayList<Junior>) PlayersPresent;
-
+                
                 for (Junior j : Juniors)
                   {
                     Names.add(j.getName());
                     System.out.println(j.getName());
                   }
-
+                
                 break;
-
+            
           }
-
+        
         Session.add(new Training(Coach, Date, Location, Time, SkillsActivites, Incidents, Names));
         System.out.println("Training Session Added");
         System.out.println("******************************************************");
       }
-
+    
     public static void addProfile(ArrayList<ProfileTemplate> Profiles, ArrayList<Category> Category, ArrayList<SkillSet> Skill, ArrayList<?> Member, int id, String MemberClass)
       {
         if (!Member.isEmpty())
@@ -171,7 +373,7 @@ public class Records
                   {
                     ArrayList<Player> Seniors = new ArrayList();
                     Seniors = (ArrayList<Player>) Member;
-
+                    
                     String Name = Seniors.get(id).getName();
                     Profiles.add(new ProfileTemplate(Name, MemberClass, Category, Skill));
                     int ProfileID = 0;
@@ -186,12 +388,12 @@ public class Records
                     Profiles.get(ProfileID).setALL();
                   }
                 break;
-
+                
                 case "Junior":
                   {
                     ArrayList<Junior> Junior = new ArrayList();
                     Junior = (ArrayList<Junior>) Member;
-
+                    
                     String Name = Junior.get(id).getName();
                     Profiles.add(new ProfileTemplate(Name, MemberClass, Category, Skill));
                     int ProfileID = 0;
@@ -206,20 +408,20 @@ public class Records
                     Profiles.get(ProfileID).setALL();
                   }
                 break;
-
+                
               }
           } else if (Member.isEmpty())
           {
             return;
           }
-
+        
       }
-
+    
     public static boolean viewProfile(ArrayList<ProfileTemplate> Profiles, String MemberClass)
       {
         if (!Profiles.isEmpty())
           {
-
+            
             System.out.println(Profiles.size());
             String[] headers =
               {
@@ -229,13 +431,13 @@ public class Records
               };
             int count = 0;
             String[][] Summary = new String[Profiles.size()][headers.length];
-            System.out.println("Working here");
+           
             for (int i = 0; i < Profiles.size(); i++)
               {
-                System.out.println("Working here");
+              
                 if (Profiles.get(i).getMemberClass().equals(MemberClass))
                   {
-                    System.out.println("Help");
+                   
                     Summary[i][0] = Integer.toString(Profiles.get(i).getId());
                     Summary[i][1] = Profiles.get(i).getPlayerName();
                     Summary[i][2] = Profiles.get(i).getMemberClass();
@@ -252,19 +454,18 @@ public class Records
                 return false;
                 
               }
-           
-          }
-        else if(Profiles.isEmpty())
+            
+          } else if (Profiles.isEmpty())
           {
-              System.out.println("Profile List is empty");
-               return false;
+            System.out.println("Profile List is empty");
+            return false;
           }
-         return false;
+        return false;
       }
-
+    
     public static void getSummary(ArrayList<?> Member, String MemberClass)
       {
-
+        
         switch (MemberClass)
           {
             case "Player":
@@ -287,14 +488,14 @@ public class Records
                     "Health Info",
                     "Player position",
                   };
-
+                
                 ArrayList<Player> Players = new ArrayList();
                 Players = (ArrayList<Player>) Member;
-
+                
                 String[][] Summary = new String[Players.size()][headers.length];
                 for (int i = 0; i < Players.size(); i++)
                   {
-
+                    
                     Summary[i][0] = Integer.toString(Players.get(i).getId());
                     Summary[i][1] = Players.get(i).getName();
                     Summary[i][2] = Players.get(i).getAddress();
@@ -310,7 +511,7 @@ public class Records
                     Summary[i][12] = Integer.toString(Players.get(i).getDoctor_Tel());
                     Summary[i][13] = Players.get(i).getHealthInfo();
                     Summary[i][14] = Players.get(i).getPlayer_position();
-
+                    
                   }
                 System.out.println("******************************************************");
                 System.out.println("Player Squad Summary:");
@@ -318,13 +519,13 @@ public class Records
                 //System.out.println("******************************************************");
               }
             break;
-
+            
             case "Junior":
-
+                System.out.println("Not yet implemented");
                 break;
-
+            
             case "Games":
-
+                
                 String[] headers =
                   {
                     "ID",
@@ -334,11 +535,11 @@ public class Records
                     "Results",
                     "Score",
                   };
-
+                
                 ArrayList<Game> Games = new ArrayList();
                 Games = (ArrayList<Game>) Member;
                 String[][] Summary = new String[Games.size()][headers.length];
-
+                
                 for (int i = 0; i < Games.size(); i++)
                   {
                     Summary[i][0] = Integer.toString(Games.get(i).getId());
@@ -350,12 +551,12 @@ public class Records
                   }
                 ASCIITable.getInstance().printTable(headers, Summary);
                 break;
-
+            
             default:
                 System.out.println("Invalid Member class type - Only Player or Junior, Game");
                 return;
           }
-
+        
       }
-
+    
 }

@@ -233,7 +233,7 @@ public class Game implements Serializable
         String Opposition_points_fh = Integer.toString(this.getOpposition_points_fh());
         String Opposition_points_sh = Integer.toString(this.getOpposition_points_sh());
      
-        System.out.println("Opposition:" + this.getOppositionName() + "\t \t" + "Date of Match:" + this.getMatchDate());
+        System.out.println("Opposition:" + this.getOppositionName() + "\t " + "Date of Match:" + this.getMatchDate());
         System.out.println("Location: " + this.isLocation() + "\t \t" + "K/O Time: " + this.getKickoffTime());
         System.out.println("Results: " + this.getResult() + "\t \t" + "Score:  " + this.getScore());
 
