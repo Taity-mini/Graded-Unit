@@ -10,6 +10,9 @@ import java.util.Scanner;
 
 /**
  *
+ * @Description:
+ *
+ * @version
  * @author Andrew Tait (EC1302292)
  */
 public class Menu
@@ -207,7 +210,7 @@ public class Menu
 
       }
 
-    public static void ModifyMembers(ArrayList<?> Member, String MemberClass)
+    private static void ModifyMembers(ArrayList<?> Member, String MemberClass)
       {
         Scanner Modify = new Scanner(System.in);
         int ID;
@@ -263,6 +266,9 @@ public class Menu
                                     Junior = (ArrayList<Junior>) Member;
                                     Junior.get(ID).getDetails();
                                     break;
+                                default:
+                                    System.out.println("Invalid member class - Player and Junior Only!");
+                                    break;
 
                               }
 
@@ -272,7 +278,7 @@ public class Menu
                             Scanner edit = new Scanner(System.in);
                             do
                               {
-                                System.out.println("Enter Player ID you wish to view");
+                                System.out.println("Enter Player ID you wish to edit");
                                 temp = (edit.nextLine());
                                 check = InputValidation.menuValid(temp, 0, arrSize);
 
@@ -340,7 +346,6 @@ public class Menu
                                 default:
                                     System.out.println("Invalid Class - Only Player, Junior and Non Player Allowed");
                                     break;
-
                               }
 
                             break;
@@ -414,21 +419,7 @@ public class Menu
                             break;
 
                         case 2:
-                            arrSize = Game.size() - 1;
-                            Records.getSummary(Game, MemberClass);
-                            Scanner viewProfile = new Scanner(System.in);
-
-                            int GameID;
-
-                            do
-                              {
-                                System.out.println("Please Game ID to view additional details");
-                                temp = (viewProfile.nextLine());
-                                check = InputValidation.menuValid(temp, 0, arrSize);
-
-                              } while (check.equals(false));
-                            GameID = Integer.parseInt(temp);
-                            Game.get(GameID).getAllDetails();
+                            Menu.ModifyGames(Game, MemberClass);
 
                             break;
 
@@ -461,5 +452,317 @@ public class Menu
           }
 
       }
+
+    private static void ModifyGames(ArrayList<Game> Game, String MemberClass)
+      {
+
+        Scanner ModifyGames = new Scanner(System.in);
+
+        int arrSize;
+        //arrSize = Game.size() - 1;
+
+        int choice = 0;
+        Boolean check;
+        String temp;
+
+        try
+          {
+            outerloop:
+            do
+              {
+
+                if (!Game.isEmpty())
+                  {
+                    Records.getSummary(Game, MemberClass);
+                    do
+                      {
+
+                        System.out.println("OPTION 1 - View Game");
+                        System.out.println("OPTION 2 - Edit Game");
+                        System.out.println("OPTION 3 - Delete Game");
+                        System.out.println("OPTION 4 - Exit");
+                        temp = (ModifyGames.nextLine());
+                        check = InputValidation.menuValid(temp, 1, 4);
+
+                      } while (check.equals(false));
+                    choice = Integer.parseInt(temp);
+
+                    switch (choice)
+                      {
+                        case 1:
+                          {
+                            arrSize = Game.size() - 1;
+                            Scanner viewProfile = new Scanner(System.in);
+
+                            int GameID;
+
+                            do
+                              {
+                                System.out.println("Please Enter Game ID to view additional details");
+                                temp = (viewProfile.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            GameID = Integer.parseInt(temp);
+                            Game.get(GameID).getAllDetails();
+                            break;
+                          }
+
+                        case 2:
+                          {
+                            arrSize = Game.size() - 1;
+
+                            Scanner editProfile = new Scanner(System.in);
+
+                            int GameID;
+
+                            do
+                              {
+                                System.out.println("Please enter Game ID to edit Game Details");
+                                temp = (editProfile.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            GameID = Integer.parseInt(temp);
+                            Records.editGame(Game, GameID);
+                            break;
+                          }
+
+                        case 3:
+                          {
+                            arrSize = Game.size() - 1;
+
+                            Scanner editProfile = new Scanner(System.in);
+
+                            int GameID;
+
+                            do
+                              {
+                                System.out.println("Please enter Game ID to delete");
+                                temp = (editProfile.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            GameID = Integer.parseInt(temp);
+                            Records.DeleteRecord(Game, MemberClass, GameID);
+
+                            break;
+                          }
+
+                        case 4:
+                          {
+                            System.out.println("Exit to Main Menu");
+                            break;
+                          }
+
+                        default:
+                            System.out.println("Invalid option selected");
+                            break;
+
+                      }
+
+                  } else if (Game.isEmpty())
+                  {
+                    System.out.println("Game list is empty, please add at least one game");
+                    return;
+
+                  }
+
+              } while (choice != 4);
+
+          } catch (NumberFormatException ex)
+          {
+            System.out.println("ERROR: This is not a valid value, please try again!");
+          }
+      }
+
+    //Training
+    public static void TrainingMenu(ArrayList<Training> Training, String MemberClass, ArrayList<?> Member)
+      {
+
+        int arrSize = Training.size() - 1;
+
+        Scanner train = new Scanner(System.in);
+
+        int choice = 0;
+        Boolean check;
+        String temp;
+
+        try
+          {
+            outerloop:
+            do
+              {
+                if (!Training.isEmpty())
+                  {
+                    innerloop:
+                    do
+                      {
+
+                        System.out.println("Simply Rugby - Training Menu");
+                        System.out.println("OPTION 1 - Add Training Session");
+                        System.out.println("OPTION 2 - View/Edit/Delete Training Session)");
+                        System.out.println("OPTION 3 - Exit");
+                        temp = (train.nextLine());
+                        check = InputValidation.menuValid(temp, 1, 3);
+
+                      } while (check.equals(false));
+                    choice = Integer.parseInt(temp);
+
+                    switch (choice)
+                      {
+                        case 1:
+                          {
+                            arrSize = Training.size() - 1;
+                            Scanner viewProfile = new Scanner(System.in);
+
+                            int SessionID;
+
+                            do
+                              {
+                                System.out.println("Please Enter Training ID to view additional details");
+                                temp = (viewProfile.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            SessionID = Integer.parseInt(temp);
+                            Training.get(SessionID).getAllDetails();
+                          }
+                        //Training.get(0).getAllDetails();
+                        break;
+
+                        case 2:
+
+                            //Menu.ModifyMembers(Player, "Player");
+                            break;
+
+                        case 3:
+                            System.out.println("System exited succesfully");
+
+                            break;
+                        default:
+                            System.out.println("Invalid option selected");
+                            break;
+
+                      }
+                  } else if (Training.isEmpty())
+                  {
+                    System.out.println("Training List is currently empty, please at least one player to continue.");
+                    System.out.println("Redirecting user to player Registration...");
+                    Scanner addSession = new Scanner(System.in);
+                    String coach;
+                    System.out.print("Enter Coach Name:");
+                    coach = addSession.nextLine();
+                    Records.addTraining(Training, coach, MemberClass, Member);
+                    
+                    break outerloop;
+                  }
+
+              } while (choice != 3);
+
+          } catch (NumberFormatException ex)
+          {
+            System.out.println("ERROR: This is not a valid value, please try again!");
+          }
+
+      }
+    
+     public static void modifyTraining(ArrayList<Training> Training, String MemberClass, ArrayList<?> Member)
+      {
+        int arrSize = Training.size() - 1;
+
+        Scanner modifyTrain = new Scanner(System.in);
+
+        int choice = 0;
+        Boolean check;
+        String temp;
+
+        try
+          {
+            outerloop:
+            do
+              {
+                if (!Training.isEmpty())
+                  {
+                    Records.viewTraining(Training, MemberClass);
+                    innerloop:
+                    do
+                      {
+
+                        System.out.println("OPTION 1 - View Training Session");
+                        System.out.println("OPTION 2 - Edit Training Session)");
+                        System.out.println("OPTION 3 - Delete Training Session)");
+                        System.out.println("OPTION 3 - Exit");
+                        temp = (modifyTrain.nextLine());
+                        check = InputValidation.menuValid(temp, 1, 4);
+
+                      } while (check.equals(false));
+                    choice = Integer.parseInt(temp);
+
+                    switch (choice)
+                      {
+                        case 1:
+                          {
+                            Scanner addSession = new Scanner(System.in);
+                            String coach;
+                            System.out.print("Enter Coach Name:");
+                            coach = addSession.nextLine();
+                            Records.addTraining(Training, coach, MemberClass, Member);
+                             //Training.get(0).getAllDetails();
+                          }
+                       
+                        break;
+
+                        case 2:
+
+                            arrSize = Training.size() - 1;
+
+                            Scanner editTraining = new Scanner(System.in);
+
+                            int TrainingID;
+
+                            do
+                              {
+                                System.out.println("Please enter Training ID to edit Session Details");
+                                temp = (editTraining.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            System.out.println("TBC");
+                            break;
+
+                        case 3:
+                            System.out.println("System exited succesfully");
+
+                            break;
+                        default:
+                            System.out.println("Invalid option selected");
+                            break;
+
+                      }
+                  } else if (Training.isEmpty())
+                  {
+                    System.out.println("Training List is currently empty, please at least one player to continue.");
+                    System.out.println("Redirecting user to player Registration...");
+                    Scanner addSession = new Scanner(System.in);
+                    String coach;
+                    System.out.print("Enter Coach Name:");
+                    coach = addSession.nextLine();
+                    Records.addTraining(Training, coach, MemberClass, Member);
+                    
+                    break outerloop;
+                  }
+
+              } while (choice != 3);
+
+          } catch (NumberFormatException ex)
+          {
+            System.out.println("ERROR: This is not a valid value, please try again!");
+          }
+        
+        
+      }
+    
+    
 
 }

@@ -21,16 +21,17 @@ public class Training  implements Serializable
     private String Date;
     private String Location;
     private String Time;
-    
+    private String MemberClass;
     private String SkillsActivites;
     //Grabs list of players present at training. 
     private ArrayList<?> PlayersPresent = new ArrayList();
    
     private String Incidents;
 
-    public Training(String Coach, String Date, String Location, String Time, String SkillsActivites, String Incidents, ArrayList <?> Players)
+    public Training(String Coach,String MemberClass, String Date, String Location, String Time, String SkillsActivites, String Incidents, ArrayList <?> Players)
       {
         this.Coach = Coach;
+        this.MemberClass = MemberClass;
         this.Date = Date;
         this.Location = Location;
         this.Time = Time;
@@ -51,6 +52,13 @@ public class Training  implements Serializable
       {
         return Coach;
       }
+
+    public String getMemberClass()
+      {
+        return MemberClass;
+      }
+    
+    
 
     public String getDate()
       {
@@ -95,6 +103,12 @@ public class Training  implements Serializable
         this.Coach = Coach;
       }
 
+    public void setMemberClass(String MemberClass)
+      {
+        this.MemberClass = MemberClass;
+      }
+    
+   
     public void setDate(String Date)
       {
         this.Date = Date;

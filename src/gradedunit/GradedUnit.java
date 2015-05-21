@@ -41,16 +41,43 @@ public class GradedUnit
         Skills.add(new SkillSet("Punt", "Kicking"));
         Skills.add(new SkillSet("Grubber", "Kicking"));
         Skills.add(new SkillSet("Goal", "Kicking"));
-        Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
-        Profiles = (ArrayList<ProfileTemplate>)FileOperations.ReadObjects(Profiles, "Profiles", dir);
-        Games = (ArrayList<Game>) FileOperations.ReadObjects(Games, "Games", dir);
-        Records.editGame(Games, 0);
-        Games.get(0).getAllDetails();
-        //Records.addProfile(Profiles, Category, Skills, Player, 0, "Player");
-        //Registration.editPlayer(Player, 0);
-        //Profiles.get(0).getALL();
-        Records.viewProfile(Profiles, "Player");
-        //System.exit(1);
+        
+        
+   
+
+        //Load files into arraylist, if they exist
+        if (FileOperations.fileExists("Player", dir))
+          {
+            Player = (ArrayList<Player>) FileOperations.ReadObjects(Player, "Player", dir);
+          }
+
+        if (FileOperations.fileExists("Junior", dir))
+          {
+            Junior = (ArrayList<Junior>) FileOperations.ReadObjects(Junior, "Junior", dir);
+          }
+
+        if (FileOperations.fileExists("Non_Player", dir))
+          {
+            Non_Player = (ArrayList<Non_Player>) FileOperations.ReadObjects(Non_Player, "Non_Player", dir);
+          }
+
+        if (FileOperations.fileExists("Profiles", dir))
+          {
+            Profiles = (ArrayList<ProfileTemplate>) FileOperations.ReadObjects(Profiles, "Profiles", dir);
+          }
+
+        if (FileOperations.fileExists("Games", dir))
+          {
+            Games = (ArrayList<Game>) FileOperations.ReadObjects(Games, "Games", dir);
+          }
+
+        if (FileOperations.fileExists("Training", dir))
+          {
+            Training = (ArrayList<Training>) FileOperations.ReadObjects(Training, "Training", dir);
+          }
+        
+             Records.viewTraining(Training, "Player");
+
         Scanner menu = new Scanner(System.in);
 
         int choice = 0;
@@ -59,18 +86,26 @@ public class GradedUnit
 
         try
           {
+            System.out.println("");
+            System.out.println("____  _                 _       ____              _            ____ _       _     \n"
+                    + "/ ___|(_)_ __ ___  _ __ | |_   _|  _ \\ _   _  __ _| |__  _   _ / ___| |_   _| |__  \n"
+                    + "\\___ \\| | '_ ` _ \\| '_ \\| | | | | |_) | | | |/ _` | '_ \\| | | | |   | | | | | '_ \\ \n"
+                    + " ___) | | | | | | | |_) | | |_| |  _ <| |_| | (_| | |_) | |_| | |___| | |_| | |_) |\n"
+                    + "|____/|_|_| |_| |_| .__/|_|\\__, |_| \\_\\\\__,_|\\__, |_.__/ \\__,  \\____|_|\\__,_|_.__/ \n"
+                    + "                  |_|      |___/             |___/       |___/                     ");
+            System.out.println("");
             do
               {
                 do
                   {
+
                     System.out.println("Simply Rugby Main Menu");
                     System.out.println("OPTION 1 - Player & Member Management");
                     System.out.println("OPTION 2 - Game Records");
                     System.out.println("OPTION 3 - Training Sessions");
-                    System.out.println("OPTION 4 - Settings");
-                    System.out.println("OPTION 5 - Exit");
+                    System.out.println("OPTION 4 - Exit");
                     temp = (menu.nextLine());
-                    check = InputValidation.menuValid(temp, 1, 5);
+                    check = InputValidation.menuValid(temp, 1, 4);
 
                   } while (check.equals(false));
                 choice = Integer.parseInt(temp);
@@ -86,29 +121,27 @@ public class GradedUnit
                         break;
 
                     case 3:
-                        System.out.println("OPTION 3 SELECTED");
+                        Menu.TrainingMenu(Training, "Player",  Player);
                         break;
 
                     case 4:
-                        System.out.println("OPTION 4 SELECTED");
-                        break;
-                    case 5:
                         System.out.println("System exited succesfully");
                         //call to write arraylists here 
                         FileOperations.WriteObjects(Player, "Player", dir);
                         FileOperations.WriteObjects(Profiles, "Profiles", dir);
                         FileOperations.WriteObjects(Games, "Games", dir);
+                        FileOperations.WriteObjects(Training, "Training", dir);
                         break;
                     default:
                         System.out.println("Invalid option selected");
-                        
+
                         break;
 
                   }
 
-              } while (choice != 5);
+              } while (choice != 4);
 
-          } catch (Exception ex)
+          } catch (NumberFormatException ex)
           {
             System.out.println("ERROR: This is not a valid value, please try again!");
           }

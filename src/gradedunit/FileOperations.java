@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectStreamException;
 
 /**
  *
@@ -69,16 +70,20 @@ public class FileOperations
               {
                 System.out.println("File doesn't exist");
               }
-          } catch (FileNotFoundException e)
+            
+          }
+            catch(ObjectStreamException ex) {
+                System.err.println("An ObjectStreamException was caught!");
+                        
+		}
+          catch (FileNotFoundException | ClassNotFoundException e)
           {
-            e.printStackTrace();
+            System.out.println("File/Class Not found");
           } catch (IOException e)
           {
-            e.printStackTrace();
-          } catch (ClassNotFoundException e)
-          {
-            e.printStackTrace();
+              System.out.println("Reading File failed, File maybe corrupt.");
           }
+          
 
         return Member;
       }
@@ -121,6 +126,13 @@ public class FileOperations
             e.printStackTrace();
           }
 
+      }
+    
+    public static boolean fileExists(String file,String folder)
+      {
+       File myFile = new File(folder + "//" + file + ".dat");
+       boolean check = myFile.exists();
+       return check;
       }
     
  
