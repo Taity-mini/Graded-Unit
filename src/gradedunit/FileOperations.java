@@ -11,9 +11,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectStreamException;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: FileOperations
+ * Description:
+ * ""
+ * 
+ **/  
 public class FileOperations
 {
     //Reading 

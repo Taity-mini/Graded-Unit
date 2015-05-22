@@ -1,11 +1,16 @@
 package gradedunit;
 
 import java.util.ArrayList;
-
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Player Member Class
+ * Description:
+ * ""
+ * 
+ **/  
 public class Player extends Member
 {
     //Local Variables for additional  fields
@@ -16,7 +21,7 @@ public class Player extends Member
         private String healthInfo;
         private String player_position;
         
-
+    //Constructor
     public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_position)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
@@ -26,15 +31,14 @@ public class Player extends Member
         this.doctor_Tel = doctor_Tel;
         this.healthInfo = healthInfo;
         this.player_position = player_position;
-        this.setId(++count);
+        this.setId(++count);//increase id with every new player
       }
 
     
         
         
     //======= START Getters=======\\
-    
-    
+   
     
     public int getId()
       {
@@ -115,6 +119,9 @@ public class Player extends Member
         return player_position;
       }
 
+    /**
+     *Display all details for one player
+     */
     @Override
     public void getDetails()
       {
@@ -226,6 +233,15 @@ public class Player extends Member
         
       //=======END Setters=======\\
 
+    /**
+     * 
+     * 
+     * @param Players
+     * @param ID
+     * @return
+     * Find id based on int, parameter
+     * */
+    
         public int findID(ArrayList<Player> Players, int ID)
           {
             Boolean found = false;

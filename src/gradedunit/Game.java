@@ -1,13 +1,20 @@
 package gradedunit;
 
-import com.bethecoder.ascii_table.ASCIITable;
+import com.bethecoder.ascii_table.ASCIITable; //comment on futher
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Game Records Class
+ * Description:
+ * ""
+ * 
+ * 
+ **/  
 public class Game implements Serializable
 {
 
@@ -35,6 +42,25 @@ public class Game implements Serializable
     private String Opposition_scores_sh;
     private int Opposition_points_sh;
 
+    /**
+     *
+     * @param OppositionName
+     * @param MatchDate
+     * @param Location
+     * @param KickoffTime
+     * @param Result
+     * @param Coach
+     * @param Score
+     * @param Squad
+     * @param SimplyRugby_scores_fh
+     * @param SimplyRugby_points_fh
+     * @param Opposition_scores_fh
+     * @param Opposition_points_fh
+     * @param SimplyRugby_scores_sh
+     * @param SimplyRugby_points_sh
+     * @param Opposition_scores_sh
+     * @param Opposition_points_sh
+     */
     public Game(String OppositionName, String MatchDate, String Location, String KickoffTime, String Result, String Coach, String Score, String Squad, String SimplyRugby_scores_fh, int SimplyRugby_points_fh, String Opposition_scores_fh, int Opposition_points_fh, String SimplyRugby_scores_sh, int SimplyRugby_points_sh, String Opposition_scores_sh, int Opposition_points_sh)
       {
         this.OppositionName = OppositionName;
@@ -57,61 +83,110 @@ public class Game implements Serializable
       }
 
     //Getters
-    public int getId()
+
+    /**
+     *
+     * @return
+     */
+        public int getId()
       {
         return id;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getOppositionName()
       {
         return OppositionName;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getMatchDate()
       {
         return MatchDate;
       }
 
+    /**
+     *
+     * @return
+     */
     public String isLocation()
       {
         return Location;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getKickoffTime()
       {
         return KickoffTime;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getResult()
       {
         return Result;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getCoach()
       {
         return Coach;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getScore()
       {
         return Score;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getSquad()
       {
         return Squad;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getSimplyRugby_scores_fh()
       {
         return SimplyRugby_scores_fh;
       }
 
+    /**
+     *
+     * @return
+     */
     public int getSimplyRugby_points_fh()
       {
         return SimplyRugby_points_fh;
       }
 
+    /**
+     *
+     * @return
+     */
     public String getOpposition_scores_fh()
       {
         return Opposition_scores_fh;
@@ -223,6 +298,9 @@ public class Game implements Serializable
         this.id = id;
       }
 
+    /**
+     *
+     */
     public void getAllDetails()
       {
 
@@ -290,8 +368,13 @@ public class Game implements Serializable
         ASCIITable.getInstance().printTable(header, secondHalf);
 
       }
-    
-    
+
+    /**
+     *
+     * @param Games
+     * @param ID
+     * @return
+     */
     public int findID(ArrayList<Game> Games, int ID)
           {
             Boolean found = false;

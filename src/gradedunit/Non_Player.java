@@ -1,15 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package gradedunit;
 
 /**
- *
- * @author Andrew
- */
+ * 
+ * @author Andrew Tait (EC1302292)
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Non Playing Member Class
+ * Description:
+ * ""
+ * 
+ **/  
 public class Non_Player extends Member
 {   
 

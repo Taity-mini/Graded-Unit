@@ -1,17 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gradedunit;
 
 import static java.lang.Boolean.FALSE;
-import com.bethecoder.ascii_table.ASCIITable;
 import java.util.ArrayList;
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Junior Member Class
+ * Description:
+ * ""
+ * 
+ **/  
 public class Junior extends Member
 {
 

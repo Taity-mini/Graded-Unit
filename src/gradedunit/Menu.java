@@ -1,20 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gradedunit;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * @Description:
- *
- * @version
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Menu Class
+ * Description:
+ * ""
+ * 
+ **/  
 public class Menu
 {
 
@@ -397,10 +395,9 @@ public class Menu
 
                     do
                       {
-                        System.out.println("Simply Rugby Main Menu");
+                        System.out.println("Simply Rugby | Game Menu");
                         System.out.println("OPTION 1 - Add Game");
                         System.out.println("OPTION 2 - View Games");
-
                         System.out.println("OPTION 3 - Exit");
                         temp = (Games.nextLine());
                         check = InputValidation.menuValid(temp, 1, 3);
@@ -429,7 +426,6 @@ public class Menu
                             break;
                         default:
                             System.out.println("Invalid option selected");
-
                             break;
 
                       }
@@ -446,7 +442,7 @@ public class Menu
 
               } while (choice != 3);
 
-          } catch (Exception ex)
+          } catch (NumberFormatException ex)
           {
             System.out.println("ERROR: This is not a valid value, please try again!");
           }
@@ -580,7 +576,7 @@ public class Menu
     public static void TrainingMenu(ArrayList<Training> Training, String MemberClass, ArrayList<?> Member)
       {
 
-        int arrSize = Training.size() - 1;
+        int arrSize;
 
         Scanner train = new Scanner(System.in);
 
@@ -633,7 +629,7 @@ public class Menu
 
                         case 2:
 
-                            //Menu.ModifyMembers(Player, "Player");
+                           Menu.modifyTraining(Training, MemberClass, Member);
                             break;
 
                         case 3:
@@ -667,9 +663,9 @@ public class Menu
 
       }
     
-     public static void modifyTraining(ArrayList<Training> Training, String MemberClass, ArrayList<?> Member)
+     private static void modifyTraining(ArrayList<Training> Training, String MemberClass, ArrayList<?> Member)
       {
-        int arrSize = Training.size() - 1;
+        int arrSize;
 
         Scanner modifyTrain = new Scanner(System.in);
 
@@ -703,12 +699,21 @@ public class Menu
                       {
                         case 1:
                           {
-                            Scanner addSession = new Scanner(System.in);
-                            String coach;
-                            System.out.print("Enter Coach Name:");
-                            coach = addSession.nextLine();
-                            Records.addTraining(Training, coach, MemberClass, Member);
-                             //Training.get(0).getAllDetails();
+                            arrSize = Training.size() - 1;
+
+                            Scanner viewTraining = new Scanner(System.in);
+
+                            int TrainingID;
+
+                            do
+                              {
+                                System.out.println("Please enter Training ID to view Session Details");
+                                temp = (viewTraining.nextLine());
+                                check = InputValidation.menuValid(temp, 0, arrSize);
+
+                              } while (check.equals(false));
+                            TrainingID = Integer.parseInt(temp);
+                            Training.get(TrainingID).getAllDetails();
                           }
                        
                         break;

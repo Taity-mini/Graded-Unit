@@ -1,9 +1,15 @@
 package gradedunit;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: InputValidation
+ * Description:
+ * ""
+ * 
+ **/  
 
 
 public class InputValidation
@@ -38,8 +44,14 @@ public class InputValidation
         return false;
 
       }
-    
-       
+
+    /**
+     *
+     * @param input
+     * @param start
+     * @param end
+     * @return
+     */
     public static boolean menuValid(String input, int start, int end)
       {
          boolean check;

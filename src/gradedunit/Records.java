@@ -5,9 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Records Class
+ * Description:
+ * ""
+ * 
+ **/  
 public class Records
 {
 
@@ -128,6 +134,11 @@ public class Records
 
       }
 
+    /**
+     *
+     * @param Game
+     * @param gameID
+     */
     public static void editGame(ArrayList<Game> Game, int gameID)
       {
         if (!Game.isEmpty())
@@ -304,6 +315,13 @@ public class Records
           }
       }
 
+    /**
+     *
+     * @param Session
+     * @param Coach
+     * @param MemberClass
+     * @param PlayersPresent
+     */
     public static void addTraining(ArrayList<Training> Session, String Coach, String MemberClass, ArrayList<?> PlayersPresent)
       {
         //Local Variables 
@@ -369,6 +387,15 @@ public class Records
         System.out.println("******************************************************");
       }
 
+    /**
+     *
+     * @param Profiles
+     * @param Category
+     * @param Skill
+     * @param Member
+     * @param id
+     * @param MemberClass
+     */
     public static void addProfile(ArrayList<ProfileTemplate> Profiles, ArrayList<Category> Category, ArrayList<SkillSet> Skill, ArrayList<?> Member, int id, String MemberClass)
       {
         if (!Member.isEmpty())
@@ -423,6 +450,12 @@ public class Records
 
       }
 
+    /**
+     *
+     * @param Profiles
+     * @param MemberClass
+     * @return
+     */
     public static boolean viewProfile(ArrayList<ProfileTemplate> Profiles, String MemberClass)
       {
         if (!Profiles.isEmpty())
@@ -487,12 +520,6 @@ public class Records
                         "SRU Number",
                         "Tel Number",
                         "Mobile Number",
-                        "Email",
-                        "Next Of Kin",
-                        "Next Of Kin Tel",
-                        "Doctor Name",
-                        "Doctor Tel",
-                        "Health Info",
                         "Player position",
                       };
 
@@ -511,13 +538,7 @@ public class Records
                         Summary[i][5] = Integer.toString(Players.get(i).getSRU_Number());
                         Summary[i][6] = Integer.toString(Players.get(i).getTelNum());
                         Summary[i][7] = Integer.toString(Players.get(i).getMobNum());
-                        Summary[i][8] = Players.get(i).getEmail();
-                        Summary[i][9] = Players.get(i).getNextOfKin();
-                        Summary[i][10] = Integer.toString(Players.get(i).getNextOfKin_Tel());
-                        Summary[i][11] = Players.get(i).getDoctor_Name();
-                        Summary[i][12] = Integer.toString(Players.get(i).getDoctor_Tel());
-                        Summary[i][13] = Players.get(i).getHealthInfo();
-                        Summary[i][14] = Players.get(i).getPlayer_position();
+                        Summary[i][8] = Players.get(i).getPlayer_position();
 
                       }
                     System.out.println("******************************************************");
@@ -560,7 +581,7 @@ public class Records
                     break;
 
                 default:
-                    System.out.println("Invalid class type - Only Player or Junior, Game");
+                    System.out.println("Invalid class type - Only Player, Junior or Game");
                     return;
               }
           } catch (Exception ex)

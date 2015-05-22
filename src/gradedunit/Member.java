@@ -3,9 +3,15 @@ package gradedunit;
 import java.io.Serializable;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Member Abstract super class
+ * Description:
+ * ""
+ * 
+ **/  
 abstract public class Member implements Serializable
 {
   //Member Form variables

@@ -5,9 +5,15 @@ import java.util.ArrayList;
 import com.bethecoder.ascii_table.ASCIITable;
 
 /**
- *
- * @author Andrew Tait EC1302292
- */
+ * 
+ * @author Andrew Tait (EC1302292)
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: 
+ * Description:
+ * ""
+ * 
+ **/  
 public class Training  implements Serializable
 {
     //Local Variables
@@ -27,7 +33,8 @@ public class Training  implements Serializable
     private ArrayList<?> PlayersPresent = new ArrayList();
    
     private String Incidents;
-
+    
+    //Constructor
     public Training(String Coach,String MemberClass, String Date, String Location, String Time, String SkillsActivites, String Incidents, ArrayList <?> Players)
       {
         this.Coach = Coach;
@@ -151,8 +158,10 @@ public class Training  implements Serializable
           }
         return Names;
       }
-    
-    
+
+    /**
+     *
+     */
     public void getAllDetails()
       {
           System.out.println("");

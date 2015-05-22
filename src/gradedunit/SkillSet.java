@@ -3,9 +3,15 @@ package gradedunit;
 import java.io.Serializable;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: SkillSet Class
+ * Description:
+ * ""
+ * 
+ **/  
 public class SkillSet implements Serializable
 {
     private String Skill;

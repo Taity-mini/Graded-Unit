@@ -8,9 +8,16 @@ import java.io.Serializable;
 import java.util.Iterator;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Profile Template Class
+ * Description:
+ * "
+ * "
+ * 
+ **/  
 public class ProfileTemplate implements Serializable
 {
 
@@ -90,6 +97,7 @@ public class ProfileTemplate implements Serializable
 
           }
       }
+    
 
     private void setId(int id)
       {

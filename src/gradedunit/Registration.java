@@ -4,12 +4,22 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
+ * 
  * @author Andrew Tait (EC1302292)
- */
+ * @version 1.0
+ * @since  21/5/2015               
+ * Name: Registration Class
+ * Description:
+ * ""
+ * 
+ **/  
 public class Registration
 {
 
+    /**
+     *
+     * @param Player
+     */
     public static void addPlayer(ArrayList<Player> Player)
       {
         //create scanner to accept user input
@@ -117,6 +127,11 @@ public class Registration
         System.out.println("******************************************************");
       }
 
+    /**
+     *
+     * @param Player
+     * @param ID
+     */
     public static void editPlayer(ArrayList<Player> Player, int ID)
       {
         //create scanner to accept user input
@@ -286,6 +301,10 @@ public class Registration
         System.out.println("******************************************************");
       }
 
+    /**
+     *
+     * @param Junior
+     */
     public static void addJunior(ArrayList<Junior> Junior)
       {
         //create scanner to accept user input
@@ -360,6 +379,10 @@ public class Registration
 
       }
 
+    /**
+     *
+     * @param Non_Player
+     */
     public static void addNonPlayer(ArrayList<Non_Player> Non_Player)
       {
         //create scanner to accept user input
@@ -400,9 +423,13 @@ public class Registration
         System.out.println("Non player: " + Name + "Sucessfully added to list.");
         System.out.println("******************************************************");
       }
-    
-    
-     public static void editNonPlayer(ArrayList<Non_Player> Non_Player, int ID)
+
+    /**
+     *
+     * @param Non_Player
+     * @param ID
+     */
+    public static void editNonPlayer(ArrayList<Non_Player> Non_Player, int ID)
       {
         //create scanner to accept user input
         Scanner NonPlayers = new Scanner(System.in);
@@ -507,11 +534,13 @@ public class Registration
         System.out.println("Non player: " +  Non_Player.get(ID).getName() + "Sucessfully Updated!");
         System.out.println("******************************************************");
       }
-    
-    
-    
-    
 
+    /**
+     *
+     * @param Member
+     * @param MemberClass
+     * @param ID
+     */
     public static void DeleteMember(ArrayList<?> Member, String MemberClass, int ID)
       {
         try
