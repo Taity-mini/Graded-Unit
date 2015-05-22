@@ -15,14 +15,14 @@ public class Player extends Member
 {
     //Local Variables for additional  fields
         private String nextOfKin;
-        private int nextOfKin_Tel;
+        private String nextOfKin_Tel;
         private String doctor_Name;
-        private int doctor_Tel;
+        private String doctor_Tel;
         private String healthInfo;
         private String player_position;
         
     //Constructor
-    public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String nextOfKin, int nextOfKin_Tel, String doctor_Name, int doctor_Tel, String healthInfo, String player_position)
+    public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email,String nextOfKin, String nextOfKin_Tel, String doctor_Name, String doctor_Tel, String healthInfo, String player_position)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.nextOfKin = nextOfKin;
@@ -70,12 +70,12 @@ public class Player extends Member
         return DateOfBirth;
       }
 
-    public int getTelNum()
+    public String getTelNum()
       {
         return TelNum;
       }
 
-    public int getMobNum()
+    public String getMobNum()
       {
         return MobNum;
       }
@@ -93,7 +93,7 @@ public class Player extends Member
       }
     
 
-    public int getNextOfKin_Tel()
+    public String getNextOfKin_Tel()
       {
         return nextOfKin_Tel;
       }
@@ -103,7 +103,7 @@ public class Player extends Member
         return doctor_Name;
       }
     
-    public int getDoctor_Tel()
+    public String getDoctor_Tel()
       {
         return doctor_Tel;
       }
@@ -181,12 +181,12 @@ public class Player extends Member
         this.DateOfBirth = DateOfBirth;
       }
         
-  	public void setTelNum(int TelNum)
+  	public void setTelNum(String TelNum)
       {
         this.TelNum = TelNum;
       }
       
-	public void setMobNum(int MobNum)
+	public void setMobNum(String MobNum)
       {
         this.MobNum = MobNum;
       }        
@@ -201,7 +201,7 @@ public class Player extends Member
         this.nextOfKin = nextOfKin;
       }
 
-    public void setNextOfKin_Tel(int nextOfKin_Tel)
+    public void setNextOfKin_Tel(String nextOfKin_Tel)
       {
         this.nextOfKin_Tel = nextOfKin_Tel;
       }
@@ -211,7 +211,7 @@ public class Player extends Member
         this.doctor_Name = doctor_Name;
       }
 
-    public void setDoctor_Tel(int doctor_Tel)
+    public void setDoctor_Tel(String doctor_Tel)
       {
         this.doctor_Tel = doctor_Tel;
       }

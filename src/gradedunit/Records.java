@@ -536,8 +536,8 @@ public class Records
                         Summary[i][3] = Players.get(i).getPostCode();
                         Summary[i][4] = Players.get(i).getDateOfBirth();
                         Summary[i][5] = Integer.toString(Players.get(i).getSRU_Number());
-                        Summary[i][6] = Integer.toString(Players.get(i).getTelNum());
-                        Summary[i][7] = Integer.toString(Players.get(i).getMobNum());
+                        Summary[i][6] = Players.get(i).getTelNum();
+                        Summary[i][7] = Players.get(i).getMobNum();
                         Summary[i][8] = Players.get(i).getPlayer_position();
 
                       }

@@ -193,7 +193,7 @@ public class Menu
                       }
                   } else if (Player.isEmpty())
                   {
-                    System.out.println("Player List is currently empty, please at least one player to continue.");
+                    System.out.println("Player List is currently empty, please enter at least one player to continue.");
                     System.out.println("Redirecting user to player Registration...");
                     Registration.addPlayer(Player);
                     break outerloop;

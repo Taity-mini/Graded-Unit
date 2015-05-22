@@ -19,15 +19,15 @@ public class Junior extends Member
     private String Guardian_Name;
     private String Guardian_Relationship;
     private String Guardian_Address;
-    private int Guardian_Tel;
+    private String Guardian_Tel;
     private String Doc_Name;
     private String Doc_Address;
-    private int Doc_Tel_Num;
+    private String Doc_Tel_Num;
     private String healthInfo;
     private String Player_position;
 
     //Constructor
-    public Junior(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email, String Guardian_Name, String Guardian_Relationship, String Guardian_Address, int Guardian_Tel, String Doc_Name, String Doc_Address, int Doc_Tel_Num, String healthInfo, String Player_position)
+    public Junior(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email, String Guardian_Name, String Guardian_Relationship, String Guardian_Address, String Guardian_Tel, String Doc_Name, String Doc_Address, String Doc_Tel_Num, String healthInfo, String Player_position)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.Guardian_Name = Guardian_Name;
@@ -73,12 +73,12 @@ public class Junior extends Member
         return DateOfBirth;
       }
 
-    public int getTelNum()
+    public String getTelNum()
       {
         return TelNum;
       }
 
-    public int getMobNum()
+    public String getMobNum()
       {
         return MobNum;
       }
@@ -103,7 +103,7 @@ public class Junior extends Member
         return Guardian_Address;
       }
 
-    public int getGuardian_Tel()
+    public String getGuardian_Tel()
       {
         return Guardian_Tel;
       }
@@ -118,7 +118,7 @@ public class Junior extends Member
         return Doc_Address;
       }
 
-    public int getDoc_Tel_Num()
+    public String getDoc_Tel_Num()
       {
         return Doc_Tel_Num;
       }
@@ -166,12 +166,12 @@ public class Junior extends Member
         this.DateOfBirth = DateOfBirth;
       }
 
-    public void setTelNum(int TelNum)
+    public void setTelNum(String TelNum)
       {
         this.TelNum = TelNum;
       }
 
-    public void setMobNum(int MobNum)
+    public void setMobNum(String MobNum)
       {
         this.MobNum = MobNum;
       }
@@ -196,7 +196,7 @@ public class Junior extends Member
         this.Guardian_Address = Guardian_Address;
       }
 
-    public void setGuardian_Tel(int Guardian_Tel)
+    public void setGuardian_Tel(String Guardian_Tel)
       {
         this.Guardian_Tel = Guardian_Tel;
       }
@@ -211,7 +211,7 @@ public class Junior extends Member
         this.Doc_Address = Doc_Address;
       }
 
-    public void setDoc_Tel_Num(int Doc_Tel_Num)
+    public void setDoc_Tel_Num(String Doc_Tel_Num)
       {
         this.Doc_Tel_Num = Doc_Tel_Num;
       }

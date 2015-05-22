@@ -13,10 +13,13 @@ package gradedunit;
 public class Non_Player extends Member
 {   
 
-    public Non_Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
+    public Non_Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
       }
+
+   
+    
     
     
     //======= START Getters=======\\
@@ -45,12 +48,12 @@ public class Non_Player extends Member
         return DateOfBirth;
       }
 
-    public int getTelNum()
+    public String getTelNum()
       {
         return TelNum;
       }
 
-    public int getMobNum()
+    public String getMobNum()
       {
         return MobNum;
       }
@@ -105,12 +108,12 @@ public class Non_Player extends Member
         this.DateOfBirth = DateOfBirth;
       }
         
-  	public void setTelNum(int TelNum)
+  	public void setTelNum(String TelNum)
       {
         this.TelNum = TelNum;
       }
       
-	public void setMobNum(int MobNum)
+	public void setMobNum(String MobNum)
       {
         this.MobNum = MobNum;
       }        

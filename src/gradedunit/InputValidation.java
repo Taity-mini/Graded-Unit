@@ -38,6 +38,8 @@ public class InputValidation
            
           } catch (NumberFormatException e)
           {
+            
+            e.printStackTrace();
             System.out.println("Invalid input, Positive Numbers only");
             return false;
           }

@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * 
+ *
  * @author Andrew Tait (EC1302292)
  * @version 1.0
- * @since  21/5/2015               
- * Name: Registration Class
- * Description:
- * ""
- * 
- **/  
+ * @since 21/5/2015 Name: Registration Class Description: ""
+ *
+ *
+ */
 public class Registration
 {
 
@@ -35,15 +33,15 @@ public class Registration
         String PostCode;
         int SRU;
         String DOB;
-        int TelNum;
-        int MobNum;
+        String TelNum;
+        String MobNum;
         String Email;
 
         //Additonal fields
         String nextOfKin;
-        int nextOfKin_Tel;
+        String nextOfKin_Tel;
         String doctor_Name;
-        int doctor_Tel;
+        String doctor_Tel;
         String healthInfo;
         String player_Position;
 
@@ -70,52 +68,23 @@ public class Registration
         System.out.print("Date of Birth (DD/MM/YYYY): ");
         DOB = players.nextLine();
 
-        do
-          {
-            System.out.print("Telephone Number: ");
-            temp = (players.nextLine());
-            check = InputValidation.isIntValid(temp);
-          } while (check.equals(false));
-        TelNum = Integer.parseInt(temp);
+        System.out.print("Telephone Number: ");
+        TelNum = players.nextLine();
 
-        do
-          {
-
-            System.out.print("Mobile Number: ");
-            temp = (players.nextLine());
-            check = InputValidation.isIntValid(temp);
-
-          } while (check.equals(false));
-
-        MobNum = Integer.parseInt(temp);;
+        System.out.print("Mobile Number: ");
+        MobNum = players.nextLine();
         System.out.print("Email Address: ");
         Email = players.nextLine();
 
         System.out.println("Additional Fields below: ");
         System.out.print("Next of Kin - Name: ");
         nextOfKin = players.nextLine();
-        do
-          {
-
-            System.out.print("Next of Kin - Telephone Number: ");
-            temp = (players.nextLine());
-            check = InputValidation.isIntValid(temp);
-
-          } while (check.equals(false));
-
-        nextOfKin_Tel = Integer.parseInt(temp);
+        System.out.print("Next of Kin - Telephone Number: ");
+        nextOfKin_Tel = players.nextLine();
         System.out.print("Doctor Name: ");
         doctor_Name = players.nextLine();
-        do
-          {
-
-            System.out.print("Doctor Telephone: ");
-            temp = (players.nextLine());
-            check = InputValidation.isIntValid(temp);
-
-          } while (check.equals(false));
-
-        doctor_Tel = Integer.parseInt(temp);
+        System.out.print("Doctor Telephone: ");
+        doctor_Tel = (players.nextLine());
         System.out.print("Known Health Issues: ");
         healthInfo = players.nextLine();
         System.out.print("Player position: ");
@@ -141,7 +110,6 @@ public class Registration
         Boolean check;
         String temp;
         String input;
-     
 
         //Player Member form
         System.out.println("Edit Rugby Players form, ID: " + ID);
@@ -188,44 +156,19 @@ public class Registration
         System.out.print("Date of Birth (DD/MM/YYYY)(Current :" + Player.get(ID).getDateOfBirth() + ") ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
-            Player.get(ID).setDateOfBirth(temp);
+            Player.get(ID).setDateOfBirth(input);
           }
 
-        do
+        System.out.print("Telephone Number (Current: ");
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
-            System.out.print("Telephone Number (Current ");
-            temp = (players.nextLine());
-            if (temp.equals(""))
-              {
-                check = true;
-              } else
-              {
-                check = InputValidation.isIntValid(temp);
-              }
-          } while (check.equals(false));
-
-        if (!temp.equals(""))
-          {
-            Player.get(ID).setTelNum(Integer.parseInt(temp));
+            Player.get(ID).setTelNum(input);
           }
 
-        do
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
-
             System.out.print("Mobile Number: " + Player.get(ID).getMobNum() + " ");
-            temp = (players.nextLine());
-            if (temp.equals(""))
-              {
-                check = true;
-              } else
-              {
-                check = InputValidation.isIntValid(temp);
-              }
-          } while (check.equals(false));
-
-        if (!temp.equals(""))
-          {
-            Player.get(ID).setMobNum(Integer.parseInt(temp));
+            Player.get(ID).setMobNum(input);
           }
 
         System.out.print("Email Address: " + Player.get(ID).getEmail() + " ");
@@ -243,8 +186,7 @@ public class Registration
         do
           {
 
-            System.out.print("Next of Kin - Telephone Number: " + Player.get(ID).getNextOfKin_Tel() + " ");
-            temp = (players.nextLine());
+             temp = (players.nextLine());
             if (temp.equals(""))
               {
                 check = true;
@@ -253,10 +195,11 @@ public class Registration
                 check = InputValidation.isIntValid(temp);
               }
           } while (check.equals(false));
-
-        if (!temp.equals(""))
+        System.out.print("Next of Kin - Telephone Number: " + Player.get(ID).getNextOfKin_Tel() + " ");
+          
+         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
-            Player.get(ID).setNextOfKin_Tel(Integer.parseInt(temp));
+            Player.get(ID).setNextOfKin_Tel(input);
           }
 
         System.out.print("Doctor Name: " + Player.get(ID).getDoctor_Name() + " ");
@@ -265,23 +208,11 @@ public class Registration
             Player.get(ID).setDoctor_Name(input);
           }
 
-        do
-          {
 
-            System.out.print("Doctor Telephone: " + Player.get(ID).getDoctor_Tel() + " ");
-            temp = (players.nextLine());
-            if (temp.equals(""))
-              {
-                check = true;
-              } else
-              {
-                check = InputValidation.isIntValid(temp);
-              }
-          } while (check.equals(false));
-
-        if (!temp.equals(""))
-          {
-            Player.get(ID).setDoctor_Tel(Integer.parseInt(temp));
+       System.out.print("Doctor Telephone: " + Player.get(ID).getDoctor_Tel() + " ");
+        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty()) 
+         {
+            Player.get(ID).setDoctor_Tel(input);
           }
 
         System.out.print("Known Health Issues: " + Player.get(ID).getHealthInfo() + " ");
@@ -316,18 +247,18 @@ public class Registration
         String PostCode;
         int SRU;
         String DOB;
-        int TelNum;
-        int MobNum;
+        String TelNum;
+        String MobNum;
         String Email;
 
         //Additional Fields
         String Guardian_Name;
         String Guardian_Relationship;
         String Guardian_Address;
-        int Guardian_Tel;
+        String Guardian_Tel;
         String Doc_Name;
         String Doc_Address;
-        int Doc_Tel_Num;
+        String Doc_Tel_Num;
         String healthInfo;
         String Player_position;
 
@@ -346,9 +277,9 @@ public class Registration
         System.out.print("Date of Birth: ");
         DOB = juniors.nextLine();
         System.out.print("Telephone Number: ");
-        TelNum = Integer.parseInt(juniors.nextLine());
+        TelNum = juniors.nextLine();
         System.out.print("Mobile Number: ");
-        MobNum = Integer.parseInt(juniors.nextLine());
+        MobNum = juniors.nextLine();
         System.out.print("Email Address: ");
         Email = juniors.nextLine();
 
@@ -361,11 +292,11 @@ public class Registration
         System.out.print("Guardian 1 - Address: ");
         Guardian_Address = juniors.nextLine();
         System.out.print("Guardian 1 - Telephone Number: ");
-        Guardian_Tel = juniors.nextInt();
+        Guardian_Tel = juniors.nextLine();
         System.out.print("Doctor Name: ");
         Doc_Name = juniors.nextLine();
         System.out.print("Doctor Telephone: ");
-        Doc_Tel_Num = juniors.nextInt();
+        Doc_Tel_Num = juniors.nextLine();
         System.out.print("Doctor - Address: ");
         Doc_Address = juniors.nextLine();
         System.out.print("Known Health Issues: ");
@@ -394,8 +325,8 @@ public class Registration
         String PostCode;
         int SRU;
         String DOB;
-        int TelNum;
-        int MobNum;
+        String TelNum;
+        String MobNum;
         String Email;
 
         //Player Member form
@@ -413,9 +344,9 @@ public class Registration
         System.out.print("Date of Birth: ");
         DOB = NonPlayers.nextLine();
         System.out.print("Telephone Number: ");
-        TelNum = NonPlayers.nextInt();
+        TelNum = NonPlayers.nextLine();
         System.out.print("Mobile Number: ");
-        MobNum = NonPlayers.nextInt();
+        MobNum = NonPlayers.nextLine();
         System.out.print("Email Address: ");
         Email = NonPlayers.nextLine();
 
@@ -433,8 +364,8 @@ public class Registration
       {
         //create scanner to accept user input
         Scanner NonPlayers = new Scanner(System.in);
-    
-	//Input Validation variables
+
+        //Input Validation variables
         Boolean check;
         String temp;
         String input;
@@ -487,22 +418,9 @@ public class Registration
             Non_Player.get(ID).setDateOfBirth(temp);
           }
 
-        do
+        if (NonPlayers.hasNextLine() && !(input = NonPlayers.nextLine()).isEmpty())
           {
-            System.out.print("Telephone Number (Current ");
-            temp = (NonPlayers.nextLine());
-            if (temp.equals(""))
-              {
-                check = true;
-              } else
-              {
-                check = InputValidation.isIntValid(temp);
-              }
-          } while (check.equals(false));
-
-        if (!temp.equals(""))
-          {
-            Non_Player.get(ID).setTelNum(Integer.parseInt(temp));
+            Non_Player.get(ID).setTelNum(input);
           }
 
         do
@@ -519,9 +437,9 @@ public class Registration
               }
           } while (check.equals(false));
 
-        if (!temp.equals(""))
+        if (NonPlayers.hasNextLine() && !(input = NonPlayers.nextLine()).isEmpty())
           {
-            Non_Player.get(ID).setMobNum(Integer.parseInt(temp));
+            Non_Player.get(ID).setMobNum(input);
           }
 
         System.out.print("Email Address: " + Non_Player.get(ID).getEmail() + " ");
@@ -531,7 +449,7 @@ public class Registration
           }
 
         //Non_Non_Non_Player.add(new Non_Player(Name, Address, PostCode, SRU, DOB, TelNum, MobNum, Email));
-        System.out.println("Non player: " +  Non_Player.get(ID).getName() + "Sucessfully Updated!");
+        System.out.println("Non player: " + Non_Player.get(ID).getName() + "Sucessfully Updated!");
         System.out.println("******************************************************");
       }
 

@@ -24,15 +24,15 @@ abstract public class Member implements Serializable
     protected String PostCode;
     protected int SRU_Number;
     protected String DateOfBirth;
-    protected int TelNum;
-    protected int MobNum;
+    protected String TelNum;
+    protected String MobNum;
     protected String Email;
         
     abstract public void getDetails();
 
     
     //Member Constuctor
-    public Member(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, int TelNum, int MobNum, String Email)
+    public Member(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email)
       {
         this.Name = Name;
         this.Address = Address;
