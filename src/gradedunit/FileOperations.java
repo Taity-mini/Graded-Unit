@@ -41,28 +41,28 @@ public class FileOperations
                   {
                     case "Player":
                         Member = (ArrayList<Player>) ois.readObject();
-                        System.out.println(myFile + " ,Sucessfully loaded");
+                        System.out.println(myFile + " ,Successfully loaded");
                         break;
                     case "Junior":
                         Member = (ArrayList<Junior>) ois.readObject();
-                        System.out.println(myFile + " ,Sucessfully loaded");
+                        System.out.println(myFile + " ,Successfully loaded");
                         break;
                     case "Non_Player":
                         Member = (ArrayList<Non_Player>) ois.readObject();
-                        System.out.println(myFile + " ,Sucessfully loaded");
+                        System.out.println(myFile + " ,Successfully loaded");
                         break;
                     case "Games":
                         Member = (ArrayList<Game>) ois.readObject();
-                        System.out.println(myFile + " ,Sucessfully loaded");
+                        System.out.println(myFile + " ,Successfully loaded");
                         break;
                     case "Profiles":
                         Member = (ArrayList<ProfileTemplate>) ois.readObject();
-                        System.out.println(myFile + " ,Sucessfully loaded");
+                        System.out.println(myFile + " ,Successfully loaded");
                         break;
                         
                      case "Training":
                         Member = (ArrayList <Training>) ois.readObject();
-                        System.out.println(myFile + " ,Sucessfully loaded");
+                        System.out.println(myFile + " ,Successfully loaded");
                         break;
                  
                     default:
@@ -94,11 +94,7 @@ public class FileOperations
         return Member;
       }
 
-    public static void ReadCSV(ArrayList<?> Member, String FileName, String folder)
-      {
-          
-      }
-
+  
     //Writing to file Operations
     public static void WriteObjects(ArrayList<?> Member, String FileName, String folder)
       {
@@ -122,7 +118,7 @@ public class FileOperations
             os.writeObject(Member); // write Member to ObjectOutputStream
             os.close();
 
-            System.out.println("Objects sent to disk");
+            System.out.println("/"+ dir + "/" + FileName + ".dat Successfully Saved"  );
 
           } catch (FileNotFoundException e)
           {

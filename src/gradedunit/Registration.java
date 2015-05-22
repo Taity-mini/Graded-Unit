@@ -115,21 +115,22 @@ public class Registration
         System.out.println("Edit Rugby Players form, ID: " + ID);
         System.out.println("Input new value to edit or leave blank");
         System.out.println("******************************************************");
-        System.out.print("Name (Current: " + Player.get(ID).getName() + ") ");
+        System.out.println("Name (Current: " + Player.get(ID).getName() + ")");
+        System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setName(input);
           }
 
-        System.out.print("Address(Current :" + Player.get(ID).getAddress() + ") ");
-
+        System.out.println("Address(Current :" + Player.get(ID).getAddress() + ")");
+        System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setAddress(input);
           }
 
-        System.out.print("PostCode(Current :" + Player.get(ID).getPostCode() + ") ");
-
+        System.out.println("PostCode(Current :" + Player.get(ID).getPostCode() + ")");
+        System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setPostCode(input);
@@ -137,8 +138,8 @@ public class Registration
 
         do
           {
-
-            System.out.print("SRU Number (Current :" + Player.get(ID).getSRU_Number() + ")  ");
+            System.out.println("SRU Number (Current :" + Player.get(ID).getSRU_Number() + ")");
+            System.out.print("New Value: ");
             temp = (players.nextLine());
             if (temp.equals(""))
               {
@@ -153,56 +154,50 @@ public class Registration
             Player.get(ID).setSRU_Number(Integer.parseInt(temp));
           }
 
-        System.out.print("Date of Birth (DD/MM/YYYY)(Current :" + Player.get(ID).getDateOfBirth() + ") ");
+        System.out.println("Date of Birth (DD/MM/YYYY)(Current :" + Player.get(ID).getDateOfBirth() + ")");
+        System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setDateOfBirth(input);
           }
 
-        System.out.print("Telephone Number (Current: ");
+        System.out.println("Telephone Number (Current:" + Player.get(ID).getTelNum() + ")");
+        System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setTelNum(input);
           }
-
+        System.out.println("Mobile Number: " + Player.get(ID).getMobNum() + " ");
+       System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
-            System.out.print("Mobile Number: " + Player.get(ID).getMobNum() + " ");
+            
             Player.get(ID).setMobNum(input);
           }
 
-        System.out.print("Email Address: " + Player.get(ID).getEmail() + " ");
+        System.out.println("Email Address: " + Player.get(ID).getEmail() + " ");
+        System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setEmail(input);
           }
         System.out.println("Additional Fields below: ");
-        System.out.print("Next of Kin - Name: " + Player.get(ID).getNextOfKin() + " ");
+        System.out.println("Next of Kin - Name: " + Player.get(ID).getNextOfKin() + " ");
+        System.out.print("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setNextOfKin(input);
           }
 
-        do
-          {
-
-             temp = (players.nextLine());
-            if (temp.equals(""))
-              {
-                check = true;
-              } else
-              {
-                check = InputValidation.isIntValid(temp);
-              }
-          } while (check.equals(false));
-        System.out.print("Next of Kin - Telephone Number: " + Player.get(ID).getNextOfKin_Tel() + " ");
-          
+        System.out.println("Next of Kin - Telephone Number: " + Player.get(ID).getNextOfKin_Tel() + " ");
+        System.out.print("New Value: ");
          if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setNextOfKin_Tel(input);
           }
 
         System.out.print("Doctor Name: " + Player.get(ID).getDoctor_Name() + " ");
+        System.out.println("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setDoctor_Name(input);
@@ -210,18 +205,21 @@ public class Registration
 
 
        System.out.print("Doctor Telephone: " + Player.get(ID).getDoctor_Tel() + " ");
-        if (players.hasNextLine() && !(input = players.nextLine()).isEmpty()) 
+       System.out.println("New Value: ");
+       if (players.hasNextLine() && !(input = players.nextLine()).isEmpty()) 
          {
             Player.get(ID).setDoctor_Tel(input);
           }
 
         System.out.print("Known Health Issues: " + Player.get(ID).getHealthInfo() + " ");
+        System.out.println("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setHealthInfo(input);
           }
 
         System.out.print("Player position: " + Player.get(ID).getPlayer_position() + " ");
+        System.out.println("New Value: ");
         if (players.hasNextLine() && !(input = players.nextLine()).isEmpty())
           {
             Player.get(ID).setPlayer_position(input);

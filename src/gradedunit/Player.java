@@ -140,7 +140,7 @@ public class Player extends Member
           System.out.println("Next Of Kin Tel: "    + this.getNextOfKin_Tel());
           System.out.println("Doctor Name: "        + this.getDoctor_Name());
           System.out.println("Doctor Tel: "         + this.getDoctor_Tel());
-          System.out.println("Health Info: "        + this.getDoctor_Tel());
+          System.out.println("Health Info: "        + this.getHealthInfo());
           System.out.println("Player position: "    + this.getPlayer_position());
           System.out.println("******************************************************");
        

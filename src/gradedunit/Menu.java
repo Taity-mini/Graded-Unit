@@ -228,7 +228,7 @@ public class Menu
                     Records.getSummary(Member, MemberClass);
                     do
                       {
-                        System.out.println("OPTION 1 - View Additonal Player Details");
+                        System.out.println("OPTION 1 - View Additional Player Details");
                         System.out.println("OPTION 2 - Edit Player Details");
                         System.out.println("OPTION 3 - Delete Player");
                         System.out.println("OPTION 4 - Exit to Main Menu");
@@ -643,8 +643,8 @@ public class Menu
                       }
                   } else if (Training.isEmpty())
                   {
-                    System.out.println("Training List is currently empty, please at least one player to continue.");
-                    System.out.println("Redirecting user to player Registration...");
+                    System.out.println("Training List is currently empty, please add at least one training session to continue.");
+                    System.out.println("Redirecting user to Training Session Form...");
                     Scanner addSession = new Scanner(System.in);
                     String coach;
                     System.out.print("Enter Coach Name:");

@@ -154,6 +154,7 @@ public class Records
 
             //General Game Information START
             System.out.println("Edit Game Record Form, ID: " + gameID);
+            System.out.println("Input new value to edit or leave blank");
             System.out.println("******************************************************");
             System.out.println("");
             System.out.println("Opposition Name: Current(" + Game.get(gameID).getOppositionName() + ")");
@@ -163,31 +164,35 @@ public class Records
                 Game.get(gameID).setOppositionName(input);
               }
             //OppositionName = Match.nextLine();
-            System.out.print("Date of Match (DD/MM/YYYY): ");
+            System.out.print("Date of Match (DD/MM/YYYY): Current("+ Game.get(gameID).getMatchDate()+ ")");
+            System.out.print("New Value: ");
             if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
               {
                 Game.get(gameID).setMatchDate(input);
               }
 
-            System.out.print("Location: (Home/Away): ");
+            System.out.print("Location: (Home/Away): Current("+ Game.get(gameID).isLocation()+ ")");
+            System.out.print("New Value: ");
             if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
               {
                 Game.get(gameID).setLocation(input);
               }
 
-            System.out.print("K/0 Time: ");
+            System.out.print("K/0 Time: Current("+ Game.get(gameID).getKickoffTime()+ ")");
+            System.out.print("New Value: ");
             if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
               {
                 Game.get(gameID).setKickoffTime(input);
               }
 
-            System.out.println("Result (Won/Lost/Drew): ");
+            System.out.println("Result (Won/Lost/Drew): Current("+ Game.get(gameID).getResult()+ ")");
+            System.out.print("New Value: ");
             if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
               {
                 Game.get(gameID).setResult(input);
               }
 
-            System.out.print("Score: ");
+            System.out.print("Score: Current("+ Game.get(gameID).getScore()+ ")");
             if (Match.hasNextLine() && !(input = Match.nextLine()).isEmpty())
               {
                 Game.get(gameID).setScore(input);
@@ -308,7 +313,7 @@ public class Records
                 Game.get(gameID).setOpposition_points_sh(Integer.parseInt(temp));
               }
 
-            System.out.println("Game ID: " + gameID + "Sucessfully Updated");
+            System.out.println("Game ID: " + gameID + " Successfully Updated");
           } else if (Game.isEmpty())
           {
             System.out.println("ERROR: Game List is empty! Please at least one game record. ");
