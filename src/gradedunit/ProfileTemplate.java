@@ -13,9 +13,10 @@ import java.util.Iterator;
  * @version 1.0
  * @since  21/5/2015               
  * Name: Profile Template Class
- * Description:
- * "
- * "
+ * Description: *Class used as a blueprint for the player profile records 
+ *               Used in conjuction with the category and skillset classes to
+ *               record all information required for player profiles."
+ * 
  * 
  **/  
 public class ProfileTemplate implements Serializable
@@ -25,10 +26,19 @@ public class ProfileTemplate implements Serializable
     private String MemberClass;
     private int id;
     private static int count = -1; 
-
+    
+    //Make Each category and skillset Unique  to each player
     ArrayList<Category> Category = new ArrayList();
     ArrayList<SkillSet> Skills = new ArrayList();
 
+    /**
+     *
+     * @param PlayerName
+     * @param Squad
+     * @param Category
+     * @param Skills
+     * Constructor for profile template
+     */
     public ProfileTemplate(String PlayerName, String Squad, ArrayList<Category> Category, ArrayList<SkillSet> Skills)
       {
         this.PlayerName = PlayerName;
@@ -66,7 +76,11 @@ public class ProfileTemplate implements Serializable
     
 
     //Setters
-    public void setALL()
+
+    /**
+     *
+     */
+        public void setALL()
       {
         Boolean check;
         String temp;
@@ -103,8 +117,10 @@ public class ProfileTemplate implements Serializable
       {
         this.id = id;
       }
-    
 
+    /**
+     *
+     */
     public void getALL()
       {
         for (Category c : Category)

@@ -9,9 +9,8 @@ import com.bethecoder.ascii_table.ASCIITable;
  * @author Andrew Tait (EC1302292)
  * @version 1.0
  * @since  21/5/2015               
- * Name: 
- * Description:
- * ""
+ * Name: Training Class
+ * Description: "Class used as a blueprint for the game records"
  * 
  **/  
 public class Training  implements Serializable
@@ -30,12 +29,24 @@ public class Training  implements Serializable
     private String MemberClass;
     private String SkillsActivites;
     //Grabs list of players present at training. 
-    private ArrayList<?> PlayersPresent = new ArrayList();
+    private ArrayList<String> PlayersPresent = new ArrayList();
    
     private String Incidents;
     
-    //Constructor
-    public Training(String Coach,String MemberClass, String Date, String Location, String Time, String SkillsActivites, String Incidents, ArrayList <?> Players)
+
+    /**
+     *
+     * @param Coach
+     * @param MemberClass
+     * @param Date
+     * @param Location
+     * @param Time
+     * @param SkillsActivites
+     * @param Incidents
+     * @param Players
+     * Constructor for Training Class
+     */
+        public Training(String Coach,String MemberClass, String Date, String Location, String Time, String SkillsActivites, String Incidents, ArrayList <String> Players)
       {
         this.Coach = Coach;
         this.MemberClass = MemberClass;
@@ -48,7 +59,7 @@ public class Training  implements Serializable
         this.setId(++count);
       }
     
-    //Getters
+  //Getters START
     public int getId()
       {
         return id;
@@ -96,8 +107,9 @@ public class Training  implements Serializable
       {
         return Incidents;
       }
+      //Getters END
     
-    //Setters
+     //Setters START
     private void setId(int id)
       {
         this.id = id;
@@ -136,7 +148,7 @@ public class Training  implements Serializable
         this.SkillsActivites = SkillsActivites;
       }
 
-    public void setPlayersPresent(ArrayList<?> PlayersPresent)
+    public void setPlayersPresent(ArrayList<String> PlayersPresent)
       {
         this.PlayersPresent = PlayersPresent;
       }
@@ -145,7 +157,7 @@ public class Training  implements Serializable
       {
         this.Incidents = Incidents;
       }
-    
+     //Setters END
     private String[][] ListToArray()
       {
         //Convert ArrayList of Names to 2d String Array
@@ -167,13 +179,13 @@ public class Training  implements Serializable
           System.out.println("");
           System.out.println("******************************************************");
           System.out.println("Training Session ID: " + this.getId());
-          System.out.println("Coach organsing: " + this.getCoach() + "\t\t" + "Date: " + this.getDate());
+          System.out.println("Coach organising: " + this.getCoach() + "\t\t" + "Date: " + this.getDate());
           System.out.println("Location: " + this.getLocation() + "\t\t" + "Time: " + this.getTime());
           System.out.println("******************************************************");
          
           String[] header1 =
           {
-            "Skills and Activites undertaken"
+            "Skills and Activities undertaken"
           };
           
            String[] header2 =

@@ -18,6 +18,12 @@ public class SkillSet implements Serializable
     private int Skill_Level;
     private String Category;
 
+    /**
+     *
+     * @param Skill
+     * @param Category
+     * Constructor for SkillSet Class
+     */
     public SkillSet(String Skill, String Category)
       {
         this.Skill = Skill;

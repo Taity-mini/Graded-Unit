@@ -13,6 +13,17 @@ package gradedunit;
 public class Non_Player extends Member
 {   
 
+    /**
+     *
+     * @param Name
+     * @param Address
+     * @param PostCode
+     * @param SRU_Number
+     * @param DateOfBirth
+     * @param TelNum
+     * @param MobNum
+     * @param Email
+     */
     public Non_Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);

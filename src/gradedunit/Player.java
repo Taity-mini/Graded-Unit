@@ -7,13 +7,13 @@ import java.util.ArrayList;
  * @version 1.0
  * @since  21/5/2015               
  * Name: Player Member Class
- * Description:
- * ""
+ * Description: "Class used as a blueprint for the player records
+ *               Extends the abstract super Member class"
  * 
  **/  
 public class Player extends Member
 {
-    //Local Variables for additional  fields
+    //Instance Variables for additional fields
         private String nextOfKin;
         private String nextOfKin_Tel;
         private String doctor_Name;
@@ -21,8 +21,27 @@ public class Player extends Member
         private String healthInfo;
         private String player_position;
         
-    //Constructor
-    public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email,String nextOfKin, String nextOfKin_Tel, String doctor_Name, String doctor_Tel, String healthInfo, String player_position)
+    
+
+    /**
+     *
+     * @param Name
+     * @param Address
+     * @param PostCode
+     * @param SRU_Number
+     * @param DateOfBirth
+     * @param TelNum
+     * @param MobNum
+     * @param Email
+     * @param nextOfKin
+     * @param nextOfKin_Tel
+     * @param doctor_Name
+     * @param doctor_Tel
+     * @param healthInfo
+     * @param player_position
+     * Constructor for Player Class
+     */
+        public Player(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email,String nextOfKin, String nextOfKin_Tel, String doctor_Name, String doctor_Tel, String healthInfo, String player_position)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.nextOfKin = nextOfKin;

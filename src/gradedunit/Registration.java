@@ -7,7 +7,9 @@ import java.util.Scanner;
  *
  * @author Andrew Tait (EC1302292)
  * @version 1.0
- * @since 21/5/2015 Name: Registration Class Description: ""
+ * @since 21/5/2015 Name: Registration Class
+ * Description: "
+ *              "
  *
  *
  */

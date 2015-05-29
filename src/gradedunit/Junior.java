@@ -2,20 +2,21 @@ package gradedunit;
 
 import static java.lang.Boolean.FALSE;
 import java.util.ArrayList;
+
 /**
- * 
+ *
  * @author Andrew Tait (EC1302292)
  * @version 1.0
- * @since  21/5/2015               
- * Name: Junior Member Class
- * Description:
- * ""
- * 
- **/  
+ * @since 21/5/2015 
+ * Name: Junior Member 
+ * Class Description: "Class used as a blueprint for the junior player records"
+ *
+ *
+ */
 public class Junior extends Member
 {
 
-    //local variables for fields
+    //Instance Variables START 
     private String Guardian_Name;
     private String Guardian_Relationship;
     private String Guardian_Address;
@@ -25,9 +26,32 @@ public class Junior extends Member
     private String Doc_Tel_Num;
     private String healthInfo;
     private String Player_position;
+    //Instance Variables END
+    
+  
 
-    //Constructor
-    public Junior(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email, String Guardian_Name, String Guardian_Relationship, String Guardian_Address, String Guardian_Tel, String Doc_Name, String Doc_Address, String Doc_Tel_Num, String healthInfo, String Player_position)
+    /**
+     *
+     * @param Name
+     * @param Address
+     * @param PostCode
+     * @param SRU_Number
+     * @param DateOfBirth
+     * @param TelNum
+     * @param MobNum
+     * @param Email
+     * @param Guardian_Name
+     * @param Guardian_Relationship
+     * @param Guardian_Address
+     * @param Guardian_Tel
+     * @param Doc_Name
+     * @param Doc_Address
+     * @param Doc_Tel_Num
+     * @param healthInfo
+     * @param Player_position
+     *   //Constructor for Junior Player Class
+     */
+        public Junior(String Name, String Address, String PostCode, int SRU_Number, String DateOfBirth, String TelNum, String MobNum, String Email, String Guardian_Name, String Guardian_Relationship, String Guardian_Address, String Guardian_Tel, String Doc_Name, String Doc_Address, String Doc_Tel_Num, String healthInfo, String Player_position)
       {
         super(Name, Address, PostCode, SRU_Number, DateOfBirth, TelNum, MobNum, Email);
         this.Guardian_Name = Guardian_Name;
@@ -47,7 +71,7 @@ public class Junior extends Member
       {
         return id;
       }
-    
+
     public String getName()
       {
         return Name;
@@ -140,7 +164,6 @@ public class Junior extends Member
         this.id = id;
       }
 
-    
     public void setName(String Name)
       {
         this.Name = Name;
@@ -230,56 +253,71 @@ public class Junior extends Member
     @Override
     public void getDetails()
       {
-          System.out.println("Name:     "                       + this.getName());
-          System.out.println("Address:  "                       + this.getAddress());
-          System.out.println("PostCode: "                       + this.getPostCode());
-          System.out.println("Date Of Birth: "                  + this.getDateOfBirth());
-          System.out.println("SRU Number: "                     + this.getSRU_Number());
-          System.out.println("Tel Number: "                     + this.getTelNum());
-          System.out.println("Mobile Number: "                  + this.getMobNum());
-          System.out.println("Email: "                          + this.getEmail());
-         
-          System.out.println("Guardian 1 - Name: "              + this.getGuardian_Name());
-          System.out.println("Guardian 1 - Relationship: "      + this.getGuardian_Relationship());
-          System.out.println("Guardian 1 - Address: "           + this.getGuardian_Address());
-          System.out.println("Guardian 1 - Telephone Number: "  + this.getGuardian_Tel());
-       
-          System.out.println("Doctor Name: "                    + this.getDoc_Name());
-          System.out.println("Doctor Telephone: "               + this.getDoc_Tel_Num());
-          System.out.println("Doctor - Address: "               + this.getDoc_Address());
-          System.out.println("Known Health Issues: "            + this.getHealthInfo());
-          System.out.println("Player position: "                + this.getPlayer_position());
+        System.out.println("Name:     " + this.getName());
+        System.out.println("Address:  " + this.getAddress());
+        System.out.println("PostCode: " + this.getPostCode());
+        System.out.println("Date Of Birth: " + this.getDateOfBirth());
+        System.out.println("SRU Number: " + this.getSRU_Number());
+        System.out.println("Tel Number: " + this.getTelNum());
+        System.out.println("Mobile Number: " + this.getMobNum());
+        System.out.println("Email: " + this.getEmail());
+
+        System.out.println("Guardian 1 - Name: " + this.getGuardian_Name());
+        System.out.println("Guardian 1 - Relationship: " + this.getGuardian_Relationship());
+        System.out.println("Guardian 1 - Address: " + this.getGuardian_Address());
+        System.out.println("Guardian 1 - Telephone Number: " + this.getGuardian_Tel());
+
+        System.out.println("Doctor Name: " + this.getDoc_Name());
+        System.out.println("Doctor Telephone: " + this.getDoc_Tel_Num());
+        System.out.println("Doctor - Address: " + this.getDoc_Address());
+        System.out.println("Known Health Issues: " + this.getHealthInfo());
+        System.out.println("Player position: " + this.getPlayer_position());
       }
 
-    public boolean CheckValidSigniture(String signiture, String Guardian_Name)
+  
+
+    /**
+     *
+     * @param signiture
+     * @param Guardian_Name
+     * @return
+     * //Check if parent/guardian sig is valid - not yet implemented in program
+     */
+        public boolean CheckValidSigniture(String signiture, String Guardian_Name)
       {
         boolean isValid = FALSE;
 
         return isValid;
 
       }
-    
-    
+
+    /**
+     *
+     * @param Juniors
+     * @param ID
+     * @return
+     * Method used to find game id, this matches ID with the arraylist index value
+     */
     public int findID(ArrayList<Junior> Juniors, int ID)
+      {
+        Boolean found = false;
+
+        for (int i = 0; i < Juniors.size(); i++)
           {
-            Boolean found = false;
-            
-            for(int i = 0; i < Juniors.size();i++)
+            if (ID == Juniors.get(i).getId())
               {
-                if(ID == Juniors.get(i).getId())
-                  {
-                    found = true;
-                    ID = i;
-                  }
-                
+                found = true;
+                ID = i;
               }
-            if(found != true)
-              {
-                  System.out.println("ID not found/Invalid");
-                  ID = -1;
-              }
-            
-            return ID;
+
           }
+        if (found != true)
+          {
+            System.out.println("ID not found/Invalid");
+            ID = -1;
+          }
+
+        return ID;
+      }
 
 }

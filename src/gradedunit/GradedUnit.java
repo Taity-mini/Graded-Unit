@@ -19,8 +19,7 @@ import java.util.Scanner;
  *   * Add, view, edit and delete Game Results and fixtures
  *   * Add and view Training Results
  *   * Writing and loading data from files.
- * 
- *               
+ *                
  * 
  */
 public class GradedUnit
@@ -66,7 +65,7 @@ public class GradedUnit
         
         //END ArrayList initialisation
    
-  
+       
         //Load files into arraylist, if they exist
         if (FileOperations.fileExists("Player", dir))
           {
@@ -99,7 +98,7 @@ public class GradedUnit
           }
         
         
-
+        
         Scanner menu = new Scanner(System.in); //create new scanner to accept user input
         
         int choice = 0; //used to store user input number

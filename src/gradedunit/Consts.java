@@ -12,17 +12,14 @@ package gradedunit;
  *"
  **/  
 public class Consts
-{
+{   
+    
     private Consts (){}
     static {
-        final String FILE_DIRECTORY = "Files";
+        final String FILE_DIRECTORY = "Files"; //NOT fully implemented 
       }
      //Constants used through out program.
      //Directory(Folder) to store files
     public static final String FILE_DIRECTORY = "Files";
-    
-    
-   
-    
-    
+
 }

@@ -17,6 +17,12 @@ import java.util.Scanner;
 public class Records
 {
 
+    /**
+     *
+     * @param Game
+     * @param Coach
+     * @param Squad
+     */
     public static void addGame(ArrayList<Game> Game, String Coach, String Squad)
       {
         //Create scanner to accept user input
@@ -361,7 +367,7 @@ public class Records
         //Get Player names from ArrayList()
         switch (MemberClass)
           {
-            case "Senior":
+            case "Player":
                 ArrayList<Player> Seniors = new ArrayList();
                 Seniors = (ArrayList<Player>) PlayersPresent;
 
@@ -507,6 +513,11 @@ public class Records
         return false;
       }
 
+    /**
+     *
+     * @param Member
+     * @param MemberClass
+     */
     public static void getSummary(ArrayList<?> Member, String MemberClass)
       {
         try
@@ -646,6 +657,12 @@ public class Records
 
       }
 
+    /**
+     *
+     * @param Member
+     * @param MemberClass
+     * @param ID
+     */
     public static void DeleteRecord(ArrayList<?> Member, String MemberClass, int ID)
       {
         try

@@ -17,19 +17,22 @@ import java.io.Serializable;
  *      SkillSet Spin
  *      etc.."
  * 
+ * 
  **/   
 public class Category implements Serializable
 {
+    //Instance Variables
     private String Category;
     private String Comments;
 
+    //Constructor Basic
     public Category(String Category)
       {
         this.Category = Category;
       }
 
     /**
-     *
+     * Constructor  for both category and comment fields
      * @param Category
      * @param Comments
      */
@@ -38,7 +41,7 @@ public class Category implements Serializable
         this.Category = Category;
         this.Comments = Comments;
       }
-
+//Getters START
     /**
      *
      * @return
@@ -56,7 +59,9 @@ public class Category implements Serializable
       {
         return Comments;
       }
-
+//Getters END
+    
+//Setters START    
     /**
      *
      * @param Category
@@ -74,5 +79,5 @@ public class Category implements Serializable
       {
         this.Comments = Comments;
       }
- 
+ //Setters END
 }

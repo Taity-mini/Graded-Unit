@@ -8,8 +8,9 @@ import java.io.Serializable;
  * @version 1.0
  * @since  21/5/2015               
  * Name: Member Abstract super class
- * Description:
- * ""
+ * Description:"
+ * 
+ *             "
  * 
  **/  
 abstract public class Member implements Serializable
@@ -43,11 +44,5 @@ abstract public class Member implements Serializable
         this.MobNum = MobNum;
         this.Email = Email;
       }
-    
-    
-    
-    
-    
-   
-    
+  
 }

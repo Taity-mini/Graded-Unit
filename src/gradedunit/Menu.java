@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * 
+ *
  * @author Andrew Tait (EC1302292)
  * @version 1.0
- * @since  21/5/2015               
- * Name: Menu Class
- * Description:
- * ""
- * 
- **/  
+ * @since 21/5/2015 Name: Menu Class Description: ""
+ *
+ *
+ */
 public class Menu
 {
 
@@ -139,7 +137,7 @@ public class Menu
                             playerID = Integer.parseInt(temp);
 
                             Records.addProfile(Profiles, Category, Skill, Player, playerID, "Player");
-                            //Profiles.get(0).getALL();
+
                             break;
 
                         case 4:
@@ -149,14 +147,12 @@ public class Menu
                                 int profileID;
                                 int profileArrSize;
                                 boolean profileCheck;
-                                profileCheck = Records.viewProfile(Profiles, "Player");
-                                if (profileCheck == true)
+
+                                if (profileCheck = Records.viewProfile(Profiles, "Player"))
                                   {
 
                                     profileArrSize = Profiles.size() - 1;
                                     Scanner viewProfile = new Scanner(System.in);
-
-                                    Records.viewProfile(Profiles, "Player");
 
                                     do
                                       {
@@ -182,8 +178,7 @@ public class Menu
                         break;
 
                         case 5:
-                            System.out.println("System exited succesfully");
-                            //call to write arraylists here
+                            System.out.println("Exit to Member Management");
 
                             break;
                         default:
@@ -609,31 +604,22 @@ public class Menu
                       {
                         case 1:
                           {
-                            arrSize = Training.size() - 1;
-                            Scanner viewProfile = new Scanner(System.in);
-
-                            int SessionID;
-
-                            do
-                              {
-                                System.out.println("Please Enter Training ID to view additional details");
-                                temp = (viewProfile.nextLine());
-                                check = InputValidation.menuValid(temp, 0, arrSize);
-
-                              } while (check.equals(false));
-                            SessionID = Integer.parseInt(temp);
-                            Training.get(SessionID).getAllDetails();
+                            Scanner addSession = new Scanner(System.in);
+                            String coach;
+                            System.out.print("Enter Coach Name:");
+                            coach = addSession.nextLine();
+                            Records.addTraining(Training, coach, MemberClass, Member);
                           }
-                        //Training.get(0).getAllDetails();
+
                         break;
 
                         case 2:
 
-                           Menu.modifyTraining(Training, MemberClass, Member);
+                            Menu.modifyTraining(Training, MemberClass, Member);
                             break;
 
                         case 3:
-                            System.out.println("System exited succesfully");
+                            System.out.println("Exit to Main Menu");
 
                             break;
                         default:
@@ -650,7 +636,7 @@ public class Menu
                     System.out.print("Enter Coach Name:");
                     coach = addSession.nextLine();
                     Records.addTraining(Training, coach, MemberClass, Member);
-                    
+
                     break outerloop;
                   }
 
@@ -662,8 +648,8 @@ public class Menu
           }
 
       }
-    
-     private static void modifyTraining(ArrayList<Training> Training, String MemberClass, ArrayList<?> Member)
+
+    private static void modifyTraining(ArrayList<Training> Training, String MemberClass, ArrayList<?> Member)
       {
         int arrSize;
 
@@ -688,7 +674,7 @@ public class Menu
                         System.out.println("OPTION 1 - View Training Session");
                         System.out.println("OPTION 2 - Edit Training Session)");
                         System.out.println("OPTION 3 - Delete Training Session)");
-                        System.out.println("OPTION 3 - Exit");
+                        System.out.println("OPTION 4 - Exit");
                         temp = (modifyTrain.nextLine());
                         check = InputValidation.menuValid(temp, 1, 4);
 
@@ -715,7 +701,7 @@ public class Menu
                             TrainingID = Integer.parseInt(temp);
                             Training.get(TrainingID).getAllDetails();
                           }
-                       
+
                         break;
 
                         case 2:
@@ -737,6 +723,9 @@ public class Menu
                             break;
 
                         case 3:
+                            System.out.println("Not yet Implemented");
+                            break;
+                        case 4:
                             System.out.println("System exited succesfully");
 
                             break;
@@ -754,20 +743,17 @@ public class Menu
                     System.out.print("Enter Coach Name:");
                     coach = addSession.nextLine();
                     Records.addTraining(Training, coach, MemberClass, Member);
-                    
+
                     break outerloop;
                   }
 
-              } while (choice != 3);
+              } while (choice != 4);
 
           } catch (NumberFormatException ex)
           {
             System.out.println("ERROR: This is not a valid value, please try again!");
           }
-        
-        
+
       }
-    
-    
 
 }
